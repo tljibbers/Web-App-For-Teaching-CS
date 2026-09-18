@@ -1,4 +1,25 @@
+.headerBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 0px 1px 1px #000000;
+}
 #website-title{
     color: white;
-    
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+}
+
+.Lesson-GetStarted {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.HeaderButton {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    background-color: #0b0b0b;
+    border: none;
+    font-size: 16px;
 }

@@ -3,11 +3,11 @@ function Header() {
     <div className="headerBox">
         <div id="website-title">Website Title</div>
         <div className="Lesson-GetStarted">
-            <button> Lessons </button>
-            <button> Roadmap </button>
-            <button> Games </button>
-            <button> About </button>
-            <button> Get Started </button>
+            <button className="HeaderButton"> Lessons </button>
+            <button className="HeaderButton"> Roadmap </button>
+            <button className="HeaderButton"> Games </button>
+            <button className="HeaderButton"> About </button>
+            <button className="HeaderButton"> Get Started </button>
         </div>
     </div>
   );
