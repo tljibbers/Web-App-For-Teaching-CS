@@ -1,12 +1,14 @@
 import Header from './Header'
+import './roadmap.css'
 
 function Roadmap() {
   return (
     <>
         <Header />
-        <div>
-           <p>Learn Computer Science in a fun, engaging way.</p>
-           <p>This website was designed specifically for anyone who shows an interest in Computer Science, but doesn't know where to start.</p>
+        <div id="roadmapTitle">Roadmap</div>
+        <div className="roadmapButtonFlex">
+           <button id="itpButton">Intro to Programming</button>
+           <button id="dsaButton">Data Structures And Algorithms</button>
         </div>
     </>
     );

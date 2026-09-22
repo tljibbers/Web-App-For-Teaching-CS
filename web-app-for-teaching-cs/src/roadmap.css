@@ -1,0 +1,36 @@
+#roadmapTitle {
+    font-size: 48px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+#itpButton, #dsaButton {
+    width: 319px;
+    height: 465px;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: white;
+}
+
+
+.roadmapButtonFlex {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    
+}
+
+#itpButton {
+   background-image: linear-gradient(to bottom, #380036, #0cbaba);
+}
+
+#dsaButton {
+    background-image: linear-gradient(to bottom, #65000b, #e44d2e);
+}
+
