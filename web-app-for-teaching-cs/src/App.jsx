@@ -4,6 +4,8 @@ import Roadmap from './Roadmap'
 import Games from './Games'
 import About from './About'
 import SignUp from './SignUp'  
+import ItpRoadmap from './ItpRoadmap'
+import DsaRoadmap from './DsaRoadmap'
 import Header from './Header'   
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
                 <Route path="/games" element={<Games />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/signUp" element={<SignUp />} />
+                <Route path="/intro-to-programming" element={<ItpRoadmap/>} />
+                <Route path="/data-structures-and-algorithms" element={<DsaRoadmap/>} />
             </Routes>
         </BrowserRouter>
         </>
