@@ -10,6 +10,26 @@
     height: auto;
 }
 
+.lockImage {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.roadmapButtonTextLocked {
+    font-size: 16px;
+    position: absolute;
+    top: 42%;
+    left: 0;
+    width: 100%;
+    color: black;
+    opacity: 0.2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .roadmapButtonText {
     font-size: 16px;
@@ -23,4 +43,44 @@
     justify-content: center;
     align-items: center;
     
+}
+
+#hello-world {
+    transform: translate(149px, 400px);
+}
+
+#variables {
+    transform: translate(50px, 320px);
+}
+
+#operators {
+    transform: translate(149px, 400px);
+}
+
+#functions {
+    transform: translate(250px, 460px);
+}
+
+#arrays {
+    transform: translate(350px, 400px);
+}
+
+#data-types {
+    transform: translate(-250px, 200px);
+}
+
+#type-casting {
+    transform: translate(-150px, 200px);
+}
+
+#if-else-then {
+    transform: translate(200px, 320px);
+}
+
+#loops {
+    transform: translate(300px, 400px);
+}
+
+#recursion {
+    transform: translate(400px, 320px);
 }
