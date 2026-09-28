@@ -2,6 +2,7 @@ import hexagonImagePlain from './assets/hexagon-fill-svgrepo-com.svg';
 import hexagonImageAvailable from './assets/hexagon-green.svg';
 import lockImage from './assets/lock-svgrepo-com.svg';
 
+
 function RoadmapButton(props){
     if (props.available === true) {
         return (
@@ -21,12 +22,6 @@ function RoadmapButton(props){
     );
 }
 
-export function LineConnector(props) {
-    return (
-        <svg width="200" height="100">
-            <line x1={props.x1} y1={props.y1} x2={props.x2} y2={props.y2} stroke="#FFFFFF" strokeWidth="3" />
-        </svg>
-    )
-}
+
 
 export default RoadmapButton;

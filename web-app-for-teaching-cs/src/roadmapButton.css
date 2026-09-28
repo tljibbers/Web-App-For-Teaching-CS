@@ -45,42 +45,46 @@
     
 }
 
+
+
 #hello-world {
-    transform: translate(149px, 400px);
+    transform: translate(119px, 400px);
 }
 
+
 #variables {
-    transform: translate(50px, 320px);
+    transform: translate(210px, 320px);
 }
 
 #operators {
-    transform: translate(149px, 400px);
+    transform: translate(309px, 400px);
 }
 
 #functions {
-    transform: translate(250px, 460px);
+    transform: translate(410px, 460px);
 }
 
 #arrays {
-    transform: translate(350px, 400px);
+    transform: translate(510px, 400px);
 }
 
 #data-types {
-    transform: translate(-250px, 200px);
+    transform: translate(-50px, 200px);
 }
 
 #type-casting {
-    transform: translate(-150px, 200px);
+    transform: translate(50px, 200px);
 }
 
 #if-else-then {
-    transform: translate(200px, 320px);
+    transform: translate(360px, 320px);
 }
 
 #loops {
-    transform: translate(300px, 400px);
+    transform: translate(460px, 400px);
 }
 
 #recursion {
-    transform: translate(400px, 320px);
+    transform: translate(560px, 320px);
 }
+
