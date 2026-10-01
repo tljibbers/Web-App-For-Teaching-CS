@@ -6,7 +6,7 @@ function Header() {
 
   return (
     <div className="headerBox">
-        <div id="website-title">Website Title</div>
+        <div id="website-title">Website Title (Alpha)</div>
         <div className="Lesson-GetStarted">
             <button className="HeaderButton" onClick={() => navigate('/home')}>
                 Lessons

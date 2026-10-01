@@ -20,7 +20,7 @@ function HomePage() {
             </div>
             <img src={computer} className="taglineSvg" width="400"></img>
           </div>
-          <div className="SubTaglineContainer">
+          <div className="SubTaglineContainer" id='bottomContainer'>
             <img src={visualLearning} className="taglineSvg" width="400"></img>
             <div className = "tagline2">
                 <p className = "taglineHeader">Made for Visual and Kinesthetic Learners.</p>

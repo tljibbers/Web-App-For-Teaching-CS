@@ -10,7 +10,12 @@
 }
 
 #topContainer {
-    padding-top: 40px;
+    padding-top: 70px;
+}
+
+#bottomContainer {
+    position: relative;
+    bottom: 200px;
 }
 
 .tagline1, .tagline2 {
@@ -38,7 +43,13 @@ p {
    font-size: 64px;
    font-weight: 500;
    text-align: center;
-   padding-top: 200px;
+   padding-top: 100px;
+}
+
+.guaranteeContainer {
+    height: 700px;
+    position: relative;
+    bottom: 150px;
 }
 .WholeSVGTextContainer {
     display: flex;
