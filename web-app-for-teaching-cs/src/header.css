@@ -11,6 +11,7 @@
     color: white;
     font-family: 'Inter', sans-serif;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .Lesson-GetStarted {
@@ -25,4 +26,22 @@
     border: none;
     font-size: 16px;
     cursor: pointer;
+}
+
+.dropdownFlex {
+    position: absolute;
+    top: 45px;
+    display: none;
+    background-color: #0c0c0c;
+    color: white;
+    font-size: 15px;
+}
+
+.dropdown.clicked .dropdownFlex {
+    display: flex;
+
+}
+
+.programTitle, .dsaTitle {
+    
 }

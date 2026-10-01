@@ -6,11 +6,21 @@ function Header() {
 
   return (
     <div className="headerBox">
-        <div id="website-title">Website Title (Alpha)</div>
+        <div id="website-title" onClick={() => navigate('/home')}>Website Title (Alpha)</div>
         <div className="Lesson-GetStarted">
-            <button className="HeaderButton" onClick={() => navigate('/home')}>
-                Lessons
-            </button>
+            <div className='dropdown'>
+                <div className="HeaderButton">
+                    Lessons
+                </div>
+                <div className='dropdownFlex'>
+                    <div className='programmingLessons'>
+                        <div className="programTitle">banana</div>
+                    </div>
+                    <div className='dataStructures'>
+                        <div classname='dsaTitle'>banana</div>
+                    </div>
+                </div>
+            </div>
             <button className="HeaderButton" onClick={() => navigate('/roadmap')}>
                 Roadmap
             </button>
