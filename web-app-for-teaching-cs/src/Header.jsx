@@ -10,7 +10,7 @@ function Header() {
         <div id="website-title" onClick={() => navigate('/home')}>Website Title (Alpha)</div>
         <div className="Lesson-GetStarted">
             <div className='dropdown'>
-                <div className="HeaderButton" onClick={dropdownClick}>
+                <div className="HeaderButton" id="lessons-dropdown" onClick={dropdownClick}>
                     Lessons
                 </div>
                 <div className='dropdownFlex'>
