@@ -26,6 +26,7 @@
     border: none;
     font-size: 16px;
     cursor: pointer;
+    padding-top: 5px;
 }
 
 .dropdownFlex {
@@ -33,15 +34,19 @@
     top: 45px;
     display: none;
     background-color: #0c0c0c;
+    width: 320px;
+    height: 300px;
     color: white;
-    font-size: 15px;
-}
-
-.dropdown.clicked .dropdownFlex {
-    display: flex;
+    font-size: 14px;
+    line-height: 1.5;
+    gap: 20px;
 
 }
 
-.programTitle, .dsaTitle {
-    
+#underlinedTitle, #underlinedTitleDSA {
+    text-decoration: underline;
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
+
+
