@@ -1,0 +1,18 @@
+.arrayContainer {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.tableOfContentsArrays {
+    color: white;
+    border-style: dotted;
+    width: 500px;
+
+}
+
+.lessonArrays {
+    color: white;
+    border-style: dotted;
+    width: 500px;
+}

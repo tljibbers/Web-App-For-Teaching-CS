@@ -14,10 +14,10 @@ function ItpRoadmap() {
                 <RoadmapButton name="Variables" available={false} id="variables" />
                 <RoadmapButton name="Operators" available={false} id="operators" />
                 <RoadmapButton name="Functions" available={false} id="functions" />
-                <RoadmapButton name="Arrays" available={true} id="arrays" />
+                <RoadmapButton name="Arrays" available={true} id="arrays" navigation="arrays"/>
                 <RoadmapButton name="Data Types" available={false} id="data-types" />
-                <RoadmapButton name="Type Casting" available={false} id="type-casting" />
-                <RoadmapButton name= "If/Else/Then" available={true} id="if-else-then" />
+                <RoadmapButton name="Type Casting" available={false} id="type-casting"/>
+                <RoadmapButton name= "If/Else/Then" available={true} id="if-else-then" navigation="if-else-then"/>
                 <RoadmapButton name="Loops" available={false} id="loops" />
                 <RoadmapButton name="Recursion" available={false} id="recursion" />
             </div>

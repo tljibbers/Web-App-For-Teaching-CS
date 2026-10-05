@@ -6,7 +6,9 @@ import About from './About'
 import SignUp from './SignUp'  
 import ItpRoadmap from './ItpRoadmap'
 import DsaRoadmap from './DsaRoadmap'
-import Header from './Header'   
+import ArrayLesson from './arrayLesson'
+import IfElseThenLesson from './ifElseThenLesson'
+
 
 function App() {
     return (
@@ -21,6 +23,8 @@ function App() {
                 <Route path="/signUp" element={<SignUp />} />
                 <Route path="/intro-to-programming" element={<ItpRoadmap/>} />
                 <Route path="/data-structures-and-algorithms" element={<DsaRoadmap/>} />
+                <Route path="/arrays" element={<ArrayLesson/>} />
+                <Route path="/if-else-then" element={<IfElseThenLesson/>} />
             </Routes>
         </BrowserRouter>
         </>
