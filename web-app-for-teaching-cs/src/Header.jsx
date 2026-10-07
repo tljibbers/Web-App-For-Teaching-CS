@@ -22,8 +22,8 @@ function Header() {
                         <div className="programTitle">Type Casting</div>
                         <div className="programTitle">Operators</div>
                         <div className="programTitle">Functions</div>
-                        <div className="programTitle">Arrays</div>
-                        <div className="programTitle">If/Then/Else</div>
+                        <div className="programTitle" onClick={() => navigate('/arrays')}>Arrays</div>
+                        <div className="programTitle" onClick={() => navigate('/if-else-then')}>If/Then/Else</div>
                         <div className="programTitle">Loops</div>
                         <div className="programTitle">Recursion</div>
                     </div>

@@ -23,6 +23,9 @@
     overflow-y: scroll;
     padding-top: 45px;
     padding-left: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .lessonArrays::-webkit-scrollbar {
