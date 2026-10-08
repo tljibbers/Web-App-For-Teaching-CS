@@ -51,3 +51,11 @@
     width: 1200px;
     font-weight: thin;
 }
+
+img {
+    border-radius: 10px;
+}
+
+#array9, #array10 {
+    width: 1000px;
+}
