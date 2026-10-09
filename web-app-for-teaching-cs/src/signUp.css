@@ -36,7 +36,7 @@ input {
     border-style: none;
 }
 
-button {
+.submitSignUp {
     width: 100px;
     height: 30px;
     align-self: center;

@@ -27,7 +27,7 @@ function SignUp() {
             <div>Confirm Password</div>
             <input type="password" id="confirmPassword" name="confirmPassword" />
             <br/>
-            <button type="submit">Sign Up</button>
+            <button type="submit" id="submitSignUp">Sign Up</button>
             <div className="login-link">
               <div>Already Have an Account? </div>
               <div>Login</div>

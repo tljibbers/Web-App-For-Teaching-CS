@@ -34,7 +34,7 @@
 
 #lessons-dropdown {
     position: relative;
-    padding-top: 7px;
+    top: 3px;
 }
 
 .dropdownFlex {
