@@ -1,0 +1,31 @@
+.questionTitle {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.question {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+.questionBoxContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.questionBox {
+    display: flex;
+    align-items: center;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    border-radius: 20px;
+    width: 500px;
+    height: 30px;
+    padding-left: 10px;
+    background-color: #0a0a0a;
+    cursor: pointer;
+
+}

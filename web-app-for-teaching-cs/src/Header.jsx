@@ -28,16 +28,16 @@ function Header() {
                         <div className="programTitle">Recursion</div>
                     </div>
                     <div className='dataStructures'>
-                        <div classname='dsaTitle' id="underlinedTitleDSA">Data Structures</div>
-                        <div classname='dsaTitle'>Big O!</div>
-                        <div classname='dsaTitle'>Arrays and DSA</div>
-                        <div classname='dsaTitle'>Linked Lists</div>
-                        <div classname='dsaTitle'>Stacks + Queues</div>
-                        <div classname='dsaTitle'>Hash Tables</div>
-                        <div classname='dsaTitle'>Searching Techniques</div>
-                        <div classname='dsaTitle'>Sorting Techniques</div>
-                        <div classname='dsaTitle'>Trees</div>
-                        <div classname='dsaTitle'>Dynamic Programming</div>
+                        <div className='dsaTitle' id="underlinedTitleDSA">Data Structures</div>
+                        <div className='dsaTitle'>Big O!</div>
+                        <div className='dsaTitle'>Arrays and DSA</div>
+                        <div className='dsaTitle'>Linked Lists</div>
+                        <div className='dsaTitle'>Stacks + Queues</div>
+                        <div className='dsaTitle'>Hash Tables</div>
+                        <div className='dsaTitle'>Searching Techniques</div>
+                        <div className='dsaTitle'>Sorting Techniques</div>
+                        <div className='dsaTitle'>Trees</div>
+                        <div className='dsaTitle'>Dynamic Programming</div>
                     </div>
                 </div>
             </div>

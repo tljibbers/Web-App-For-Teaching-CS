@@ -37,6 +37,11 @@
     font-style: italic;
     font-weight: 500;
     padding-bottom: 25px;
+    
+}
+
+#jump1, #jump2, #jump3, #jump4, #jump5, #jump6, #jump7, #jump8, #jump9 {
+    scroll-margin-top: 3rem;
 }
 
 .arrayHeader {
@@ -54,8 +59,37 @@
 
 img {
     border-radius: 10px;
+    width: 1000px;
 }
 
 #array9, #array10 {
     width: 1000px;
+}
+
+.quizContainer {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+    height: 500px;
+    border-radius: 20px;
+    border-color: white;
+    border-style: solid;
+    background-color: black;
+}
+
+#fragmentPush {
+    position: relative;
+}
+#arrow, #arrowLeft {
+    position: relative;
+    height: 50px;
+    padding-top: 22%;
+    cursor: pointer;
+   
+}
+
+#arrowLeft {
+    transform: scaleX(-1);
+    opacity: 0;
+    cursor: default;
 }
