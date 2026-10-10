@@ -3,12 +3,7 @@ import './arrays.css'
 import arrow from './assets/arrow.svg'
 import {useNavigate} from 'react-router-dom';
 import {useRef} from 'react';
-import { useState } from 'react';
 import { QuestionOne } from './arrayQuizQuestions';
-import { QuestionTwo } from './arrayQuizQuestions';
-import { QuestionThree } from './arrayQuizQuestions';
-import { QuestionFour } from './arrayQuizQuestions';
-import { QuestionFive } from './arrayQuizQuestions';
 
 import array1 from './lessonScreenshots/arrays/array1.png'
 import array2 from './lessonScreenshots/arrays/array2.png'
@@ -31,34 +26,6 @@ import array18 from './lessonScreenshots/arrays/arrays18.png'
 import array19 from './lessonScreenshots/arrays/arrays19.png'
 
 function ArrayLesson() {
-
-    const [fragmentIndex, setIndex] = useState(0)
-    const arrayFragment = [<QuestionOne/>, <QuestionTwo/>, <QuestionThree/>, <QuestionFour/>, <QuestionFive/>] 
-
-    function increment() {
-        if(fragmentIndex <= 3)
-        {
-            console.log(fragmentIndex)
-            setIndex(fragmentIndex + 1)
-            document.getElementById('arrow').style.opacity = '100';
-            document.getElementById('arrow').style.cursor = 'pointer';
-        }
-        if(fragmentIndex >= 3)
-        {
-            document.getElementById('arrow').style.opacity = '0';
-            document.getElementById('arrow').style.cursor = 'default';
-        }
-    }
-
-    function decrement() {
-        if(fragmentIndex >= 1)
-        {
-            setIndex(fragmentIndex - 1)
-            document.getElementById('arrowLeft').style.opacity = '100';
-            document.getElementById('arrowLeft').style.cursor = 'pointer';
-        }
-        
-    }
 
     const navigate = useNavigate();
 
@@ -156,9 +123,9 @@ function ArrayLesson() {
                         <div ref={jumpRef4} className="arrayHeader" id="jump4">Interactive Quiz:</div>
                         <div className="arrayTextContent">Let's take a break from all of the reading and get into some questions!</div>
                         <div className="quizContainer">
-                            <img src={arrow} id='arrowLeft' height='50px' onClick={() => decrement()}></img>
-                            <div id='fragmentPush'>{arrayFragment[fragmentIndex]}</div>
-                            <img src={arrow} id='arrow' height='50px' onClick={() => increment()}></img>
+                            <img src={arrow} id='arrowLeft' height='50px'></img>
+                            <div id='fragmentPush'><QuestionOne/></div>
+                            <img src={arrow} id='arrow' height='50px'></img>
                         </div>
                     </div>
                     <div>
