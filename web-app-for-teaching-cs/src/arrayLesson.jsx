@@ -3,7 +3,7 @@ import './arrays.css'
 import arrow from './assets/arrow.svg'
 import {useNavigate} from 'react-router-dom';
 import {useRef} from 'react';
-import { QuestionOne } from './arrayQuizQuestions';
+import { QuizQuestionsQuiz1 } from './arrayQuizQuestions';
 
 import array1 from './lessonScreenshots/arrays/array1.png'
 import array2 from './lessonScreenshots/arrays/array2.png'
@@ -124,7 +124,7 @@ function ArrayLesson() {
                         <div className="arrayTextContent">Let's take a break from all of the reading and get into some questions!</div>
                         <div className="quizContainer">
                             <img src={arrow} id='arrowLeft' height='50px'></img>
-                            <div id='fragmentPush'><QuestionOne/></div>
+                            <QuizQuestionsQuiz1/>
                             <img src={arrow} id='arrow' height='50px'></img>
                         </div>
                     </div>

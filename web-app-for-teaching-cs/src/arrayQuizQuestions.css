@@ -30,3 +30,19 @@
     cursor: pointer;
 
 }
+
+.scoreContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 50px;
+}
+
+#finalScoreTitle {
+    font-size: 50px;
+}
+
+#finalScore {
+    font-size: 40px;
+}
