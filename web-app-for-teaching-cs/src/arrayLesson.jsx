@@ -137,10 +137,10 @@ function ArrayLesson() {
                         <img className="arrayImg" src={array6}/>
                         <div className="arrayTextContent">You can even use it to delete multiple elements in succession. Instead of just putting in a single index, you would put in the parameter a start index and an end index, separated by a double colon, which is referred to as a slice.</div>
                         <img className="arrayImg" src={array7}/>
-                        <div className="arrayTextContent">pop() Method: The pop method takes out a specific item and returns said item as an individual value. This means that if you were to create a new variable that uses the method, the new variable’s value would be the removed item. Take a look below:</div>
+                        <div className="arrayTextContent">pop() Method: The pop method takes out a specific item and returns said item as an individual value. By default, it removes the last item in the array. This means that if you were to create a new variable that uses the method, the new variable’s value would be the removed item. Take a look below:</div>
                         <img className="arrayImg" src={array8}/>
                         <div className="arrayTextContent">The next one uses the value as the parameter instead of the index number:</div>
-                        <div className="arrayTextContent">remove() Method: As said above, the remove method gets rid of an element using the actual element’s name instead of its index.</div>
+                        <div className="arrayTextContent">remove() Method: As said above, the remove method gets rid of an element using the actual element’s name instead of its index. If there are duplicates, it only removes the first instance of the item.</div>
                         <img className="arrayImg" src={array9} id="array9"/>
                         <div className="arrayTextContent">If you want to wipe everything clean off the array, there is a method for that, it’s called the clear() method.</div>
                         <img className="arrayImg" src={array10} id='array10'/>
