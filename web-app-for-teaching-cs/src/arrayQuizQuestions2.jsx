@@ -75,17 +75,19 @@ function QuestionThree({increment, rightAnswerIncrement}) {
             <div className="questionTitle">Question 3:</div>
             <div className="question">If we wanted to get rid of everything in the array, what method would we use?</div>
             <form>
-                <div className="questionBox" id='1cQuiz2' onClick={() => checkAnswer('A. clear()', '1cQuiz2', '1cQuiz2', increment, rightAnswerIncrement)}>
-                    <div>A. clear()</div>
-                </div>
-                <div className="questionBox" id='2cQuiz2' onClick={() => checkAnswer('B. wipe()', '2cQuiz2', '1cQuiz2', increment, rightAnswerIncrement)}>
-                    <div>B. wipe()</div>
-                </div>
-                <div className="questionBox" id='3cQuiz2' onClick={() => checkAnswer('C. erase()', '3cQuiz2', '1cQuiz2', increment, rightAnswerIncrement)}>
-                    <div>C. erase()</div>
-                </div>
-                <div className="questionBox" id='4cQuiz2' onClick={() => checkAnswer('D. destroy()', '4cQuiz2', '1cQuiz2', increment, rightAnswerIncrement)}>
-                    <div>D. destroy()</div>
+                <div className='questionBoxContainer'>
+                    <div className="questionBox" id='1cQuiz2' onClick={() => checkAnswer('A. clear()', '1cQuiz2', '1cQuiz2', increment, rightAnswerIncrement)}>
+                        <div>A. clear()</div>
+                    </div>
+                    <div className="questionBox" id='2cQuiz2' onClick={() => checkAnswer('B. wipe()', '2cQuiz2', '1cQuiz2', increment, rightAnswerIncrement)}>
+                        <div>B. wipe()</div>
+                    </div>
+                    <div className="questionBox" id='3cQuiz2' onClick={() => checkAnswer('C. erase()', '3cQuiz2', '1cQuiz2', increment, rightAnswerIncrement)}>
+                        <div>C. erase()</div>
+                    </div>
+                    <div className="questionBox" id='4cQuiz2' onClick={() => checkAnswer('D. destroy()', '4cQuiz2', '1cQuiz2', increment, rightAnswerIncrement)}>
+                        <div>D. destroy()</div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -98,11 +100,13 @@ function QuestionFour({increment, rightAnswerIncrement}) {
             <div className="questionTitle">Question 4:</div>
             <div className="question">You HAVE to name a temporary variable ‘temp’ everytime you want to swap variables.</div>
             <form>
-                <div className="questionBox" id='1dQuiz2' onClick={() => checkAnswer('A. True', '1dQuiz2', '2dQuiz2', increment, rightAnswerIncrement)}>
-                    <div>A. True</div>
-                </div>
-                <div className="questionBox" id='2dQuiz2' onClick={() => checkAnswer('B. False', '2dQuiz2', '2dQuiz2', increment, rightAnswerIncrement)}>
-                    <div>B. False</div>
+                <div className='questionBoxContainer'>
+                    <div className="questionBox" id='1dQuiz2' onClick={() => checkAnswer('A. True', '1dQuiz2', '2dQuiz2', increment, rightAnswerIncrement)}>
+                        <div>A. True</div>
+                    </div>
+                    <div className="questionBox" id='2dQuiz2' onClick={() => checkAnswer('B. False', '2dQuiz2', '2dQuiz2', increment, rightAnswerIncrement)}>
+                        <div>B. False</div>
+                    </div>
                 </div>
             </form>
         </div>
