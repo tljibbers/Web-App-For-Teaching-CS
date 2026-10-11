@@ -4,6 +4,7 @@ import arrow from './assets/arrow.svg'
 import {useNavigate} from 'react-router-dom';
 import {useRef} from 'react';
 import { QuizQuestionsQuiz1 } from './arrayQuizQuestions';
+import { QuizQuestionsQuiz2 } from './arrayQuizQuestions2';
 
 import array1 from './lessonScreenshots/arrays/array1.png'
 import array2 from './lessonScreenshots/arrays/array2.png'
@@ -159,6 +160,11 @@ function ArrayLesson() {
                     <div>
                         <div ref={jumpRef7} className="arrayHeader" id="jump7">Interactive Quiz #2</div>
                         <div className="arrayTextContent">Let's take a break from all of the reading and get into some questions!</div>
+                        <div className="quizContainer">
+                            <img src={arrow} id='arrowLeft' height='50px'></img>
+                            <QuizQuestionsQuiz2/>
+                            <img src={arrow} id='arrow' height='50px'></img>
+                        </div>
                     </div>
                     <div>
                         <div ref={jumpRef8} className="arrayHeader" id="jump8">Some Extra Concepts:</div>
