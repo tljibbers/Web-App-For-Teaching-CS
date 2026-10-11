@@ -62,3 +62,8 @@
     border-style: solid;
     background-color: black;
 }
+
+.ifElseImg {
+    border-radius: 10px;
+    width: 1000px;
+}
