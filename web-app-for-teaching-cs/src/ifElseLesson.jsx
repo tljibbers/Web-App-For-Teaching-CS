@@ -2,6 +2,8 @@ import Header from "./Header";
 import './ifElse.css'
 import {useNavigate} from 'react-router-dom';
 import {useRef} from 'react';
+import { IfElseQuizQuestions1 } from "./ifElseQuiz";
+import { IfElseQuizQuestions2 } from "./ifElseQuiz2";
 
 import if1 from './lessonScreenshots/if-else/if1.png'
 import if2 from './lessonScreenshots/if-else/if2.png'
@@ -117,7 +119,7 @@ function IfElseLesson() {
                         <img className="ifElseImg" src={if3}></img>
                     </div>
                     <div>
-                        <div ref={jumpRef4} className="ifElseHeader">And, Or, Not</div>
+                        <div ref={jumpRef4} className="ifElseHeader">And, Or, Not Equals To</div>
                         <div className="ifElseTextContent">Let’s start to spice things up! Now you know how to make a basic if statement, but we gotta make it a little more complex so you can get a better look at the full picture. Might get a little scary, but we’re gonna make sure you get it. What if you wanted to have a statement that had multiple conditional parts? How would you represent that? Enter logical operators. These are words/symbols that can be added to your conditional statements to give more options or more conditions to a statement. Let's get a closer look at each one.</div>
                         <div className="ifElseTextContent">And: If used in a conditional, the program checks to see if all parts are true. If even one part is false, the entire statement is false and the program moves on.</div>
                         <img className="ifElseImg" src={if4}></img>
@@ -144,7 +146,7 @@ function IfElseLesson() {
                     <div>
                         <div ref={jumpRef6} className="ifElseHeader">Interactive Quiz #1</div>
                         <div className="ifElseTextContent">No more reading for now! Let’s solve some questions!</div>
-                        <div className="quizContainer2"></div>
+                        <div className="quizContainer2"><IfElseQuizQuestions1/></div>
                     </div>
                     <div>
                         <div ref={jumpRef7} className="ifElseHeader">Elif (else if)</div>
@@ -175,7 +177,7 @@ function IfElseLesson() {
                     <div>
                         <div ref={jumpRef10} className="ifElseHeader">Interactive Quiz #2</div>
                         <div className="ifElseTextContent">Let's get some questions going!</div>
-                        <div className="quizContainer2"></div>
+                        <div className="quizContainer2"><IfElseQuizQuestions2/></div>
                     </div>
                     <div>
                         <div ref={jumpRef11} className="ifElseHeader">Conclusion</div>
