@@ -7,7 +7,7 @@ function SignUp() {
         <Header />
         <div className="sign-up">
           <div id="sign-up-title">Sign Up</div>
-           <form>
+           <form id='sign-up-form' onSubmit={signUpBackend}>
             <div className="full-name">
               <div>
                 <div>First Name</div>
@@ -36,6 +36,71 @@ function SignUp() {
         </div>
     </>
     );
+}
+
+/*function signUpBackend() {
+  const form = document.getElementById('sign-up-form')
+  const nameInput = document.getElementById('firstName')
+  const lastNameInput = document.getElementById('lastName')
+  const emailInput = document.getElementById('email')
+  const userNameInput = document.getElementById('username')
+  const passwordInput = document.getElementById('password')
+  //const confirmPasswordInput = document.getElementById('confirmPassword')
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    const name = nameInput.value 
+    const lastName = lastNameInput.value 
+    const email = emailInput.value 
+    const userName = userNameInput.value
+    const password = passwordInput.value
+    //const confirmPassword = confirmPasswordInput.value
+
+    fetch('http://localhost:3000/accountInfo', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({name, lastName, email, userName, password})
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Server Response', data)
+    })
+  })
+} */
+
+async function signUpBackend(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('firstName').value
+  const lastName = document.getElementById('lastName').value
+  const email = document.getElementById('email').value
+  const userName = document.getElementById('username').value
+  const password = document.getElementById('password').value
+
+  try {
+    const response = await fetch('http://localhost:3000/accountInfo', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({name, lastName, email, userName, password})
+    })
+
+    if(!response.ok) {
+      throw new Error('HTTP error: ${response.status}');
+    }
+
+    const data = await response.json();
+    console.log('Server Response:', data)
+  }
+  catch (error) {
+    console.error('Error with data sent:', error)
+  }
+
+
 }
 
 export default SignUp;
