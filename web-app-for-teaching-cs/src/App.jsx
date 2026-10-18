@@ -8,6 +8,7 @@ import ItpRoadmap from './ItpRoadmap'
 import DsaRoadmap from './DsaRoadmap'
 import ArrayLesson from './arrayLesson'
 import IfElseLesson from './ifElseLesson'
+import BigOLesson from './bigOLesson'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/data-structures-and-algorithms" element={<DsaRoadmap/>} />
                 <Route path="/arrays" element={<ArrayLesson/>} />
                 <Route path="/if-else-then" element={<IfElseLesson/>} />
+                <Route path="/big-o" element={<BigOLesson/>}/>
             </Routes>
         </BrowserRouter>
         </>

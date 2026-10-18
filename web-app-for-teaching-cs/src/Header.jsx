@@ -29,7 +29,7 @@ function Header() {
                     </div>
                     <div className='dataStructures'>
                         <div className='dsaTitle' id="underlinedTitleDSA">Data Structures</div>
-                        <div className='dsaTitle'>Big O!</div>
+                        <div className='dsaTitle' onClick={() => navigate('/big-o')}>Big O!</div>
                         <div className='dsaTitle'>Arrays and DSA</div>
                         <div className='dsaTitle'>Linked Lists</div>
                         <div className='dsaTitle'>Stacks + Queues</div>
