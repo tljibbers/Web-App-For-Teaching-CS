@@ -1,5 +1,6 @@
 import Header from './Header'
 import './signUp.css'
+import {useNavigate} from 'react-router-dom';
 
 function SignUp() {
   return (
@@ -95,6 +96,8 @@ async function signUpBackend(e) {
 
     const data = await response.json();
     console.log('Server Response:', data)
+    window.location.href = 'http://localhost:5173/home'
+    
   }
   catch (error) {
     console.error('Error with data sent:', error)
