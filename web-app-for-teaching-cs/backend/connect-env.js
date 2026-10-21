@@ -5,15 +5,17 @@ dotenv.config({path: './config.env', debug: true});
 
 const dataBase = process.env.ATLAS_URI
 const client = new MongoClient(dataBase)
+const dbName = 'accountsList'
 
 export async function databaseConnect() {
     
     try {
         await client.connect()
-        console.log('opened')
-        return client
+        const dbHolder = client.db(dbName)
+        return dbHolder
     } catch (e) {
         console.error(e)
+        process.exit(1);
     }
    
 
@@ -24,5 +26,3 @@ export async function disconnect() {
     console.log('closed')
 }
 
-databaseConnect()
-disconnect()
