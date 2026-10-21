@@ -1,9 +1,12 @@
+import { databaseConnect } from './connect-env';
 import express from 'express';
 import cors from 'cors'
-console.log('test')
 
+console.log('working')
 
 const app = express()
+
+
 
 app.use(cors({
     origin: ['http://localhost:5173']
