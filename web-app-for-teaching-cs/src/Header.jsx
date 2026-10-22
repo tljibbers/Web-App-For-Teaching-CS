@@ -1,10 +1,12 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom'
 import { useEffect } from 'react';
+import { useState } from 'react';
 
 let dropdownClicked = false;
 function Header() {
   const navigate = useNavigate();
+  const [userSignedIn, setUserSignedIn] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:3000/api/session', {
@@ -18,6 +20,7 @@ function Header() {
         return response.json();
     })
     .then(data => {
+        setUserSignedIn(data.userSignedIn);
         console.log('Signed In:', data.userSignedIn)
     })
     .catch(error => {
@@ -70,9 +73,10 @@ function Header() {
             <button className="HeaderButton" onClick={() => navigate('/about')}>
                 About
             </button>
-            <button className="HeaderButton" onClick={() => navigate('/signUp')}>
+            {userSignedIn ? (<div className="HeaderButton">Signed In</div>) : 
+            (<button className="HeaderButton" onClick={() => navigate('/signUp')}>
                 Get Started
-            </button>
+            </button>)}
         </div>
     </div>
   );
