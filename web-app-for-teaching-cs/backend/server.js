@@ -1,5 +1,6 @@
 import { databaseConnect } from './connect-env.js';
 import express from 'express';
+import session from 'express-session'
 import cors from 'cors'
 
 console.log('working')
@@ -7,22 +8,22 @@ let dbHolder;
 
 const app = express()
 
-databaseConnect()
-
 app.use(cors({
-    origin: ['http://localhost:5173']
+    origin: ['http://localhost:5173'],
+    credentials: true
 }))
 
 app.use(express.json())
 
-app.get('/', (req, res) => {
-    console.log('Here')
-    res.send("hello")
-})
-
-app.get('/accountInfo', (req, res) => {
-    res.json({message: "recieved"})
-})
+app.use(session({
+    secret: 'sfddafdsafdasfds',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 50,
+        httpOnly: true,
+        secure: false}
+}));
 
 app.post('/accountInfo', async (req, res) => {
     try{
@@ -35,10 +36,24 @@ app.post('/accountInfo', async (req, res) => {
         const newUser = {name, lastName, email, userName, password};
         const result = await collection.insertOne(newUser);
 
-        res.status(201).json({
-            message: 'Account Created!',
-            insertedId: result.insertedId
-        })
+        req.session.user = {
+            userSignedIn: true
+        }
+
+        req.session.save((error) => {
+            if(error) {
+                console.error('Session had a problem saving:', error);
+                return res.status(500).json({
+                    error: 'Failed to save'
+                })
+            }
+
+            res.status(201).json({
+                message: 'Account Created!',
+                insertedId: result.insertedId
+            })
+        });
+
 
     } catch (error){
         console.error('Failed:', error);
@@ -46,6 +61,14 @@ app.post('/accountInfo', async (req, res) => {
     }
     
 })
+
+app.get('/api/session', (req, res) => {
+    res.json({
+        userSignedIn: Boolean(req.session.user?.userSignedIn)
+    })
+})
+
+
 
 
 

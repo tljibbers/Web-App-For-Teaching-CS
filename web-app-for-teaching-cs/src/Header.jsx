@@ -1,9 +1,29 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom'
+import { useEffect } from 'react';
 
 let dropdownClicked = false;
 function Header() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/session', {
+        method: 'GET',
+        credentials: 'include'
+    })
+    .then(response => {
+        if(!response.ok) {
+            throw new Error('HTTP error: ${response.status}');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Signed In:', data.userSignedIn)
+    })
+    .catch(error => {
+        console.error('Session request failed:', error);
+    });
+  }, []);
 
   return (
     <div className="headerBox">
