@@ -2,6 +2,8 @@ import Header from './Header'
 import './arrays.css'
 import { useNavigate } from 'react-router-dom';
 import {useRef} from 'react';
+import { BigOQuizQuestionsQuiz1 } from './bigOQuestions';
+import { BigOQuizQuestionsQuiz2 } from './bigOQuestions2';
 
 import bigO1 from './lessonScreenshots/big-o/bigO1.png'
 import bigO2 from './lessonScreenshots/big-o/bigO2.png'
@@ -88,7 +90,7 @@ function BigOLesson() {
                     <div>
                         <div ref={jumpRef4} className="arrayHeader" id="jump4">Interactive Quiz #1</div>
                         <div className="arrayTextContent">Time to take a break from all that informational reading, let's start reading and answering some questions!</div>
-                        <div className='quizContainer'></div>
+                        <div className='quizContainer'><BigOQuizQuestionsQuiz1/></div>
                     </div>
                     <div>
                         <div ref={jumpRef5} className="arrayHeader" id="jump5">The Big O Complexities</div>
@@ -134,7 +136,7 @@ function BigOLesson() {
                     <div>
                         <div ref={jumpRef6} className="arrayHeader" id="jump6">Interactive Quiz #2</div>
                         <div className="arrayTextContent">I know your heads are probably spinning right now, so let's make it spin some more with some questions!</div>
-                        <div className='quizContainer'></div>
+                        <div className='quizContainer'><BigOQuizQuestionsQuiz2/></div>
                     </div>
                     <div>
                         <div ref={jumpRef7} className="arrayHeader" id="jump7">Conclusion</div>
