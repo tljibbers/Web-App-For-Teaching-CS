@@ -3,7 +3,8 @@ import HomePage from './HomePage'
 import Roadmap from './Roadmap'
 import Games from './Games'
 import About from './About'
-import SignUp from './SignUp'  
+import SignUp from './SignUp' 
+import SignIn from './signIn' 
 import ItpRoadmap from './ItpRoadmap'
 import DsaRoadmap from './DsaRoadmap'
 import ArrayLesson from './arrayLesson'
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/games" element={<Games />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/signUp" element={<SignUp />} />
+                <Route path="/signIn" element={<SignIn/>}/>
                 <Route path="/intro-to-programming" element={<ItpRoadmap/>} />
                 <Route path="/data-structures-and-algorithms" element={<DsaRoadmap/>} />
                 <Route path="/arrays" element={<ArrayLesson/>} />

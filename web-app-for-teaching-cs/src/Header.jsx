@@ -7,6 +7,7 @@ let dropdownClicked = false;
 function Header() {
   const navigate = useNavigate();
   const [userSignedIn, setUserSignedIn] = useState(false);
+  const [userData, setUserData] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:3000/api/session', {

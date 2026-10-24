@@ -62,6 +62,47 @@ app.post('/accountInfo', async (req, res) => {
     
 })
 
+app.post('/logIn', async (req, res) => {
+    try{
+        console.log('POST /logIn was reached!');
+        const {name, password} = req.body
+
+        const userLoginDetails = {name, password}
+        const collection = dbHolder.collection('accounts')
+        const userSearch = await collection.findOne(
+            {name: userLoginDetails.name},
+            {password: userLoginDetails.password}
+        );
+
+        if(userSearch)
+        {
+            req.session.user = {
+                userSignedIn: true
+            }
+            console.log('User is signed in!')
+        }
+        else {
+            console.log('Wrong Password')
+        }
+    } catch (error){
+        console.error('Failed:', error);
+        res.status(500).json({error: 'Internal Server Error'})
+    }
+})
+
+app.post('/logOut', (req, res) => {
+    req.session.destroy((err) => {
+        if(err) {
+            return res.status(500).send('There was an error logging out.')
+        }
+
+        res.clearCookie('connect.sid');
+
+        res.send('Successful logout.')
+    })
+})
+
+
 app.get('/api/session', (req, res) => {
     res.json({
         userSignedIn: Boolean(req.session.user?.userSignedIn)
