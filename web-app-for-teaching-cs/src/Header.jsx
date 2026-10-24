@@ -2,12 +2,13 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom'
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { logOut } from './logout';
 
 let dropdownClicked = false;
 function Header() {
   const navigate = useNavigate();
   const [userSignedIn, setUserSignedIn] = useState(false);
-  const [userData, setUserData] = useState([])
+  const [userData, setUserData] = useState('')
 
   useEffect(() => {
     fetch('http://localhost:3000/api/session', {
@@ -22,7 +23,9 @@ function Header() {
     })
     .then(data => {
         setUserSignedIn(data.userSignedIn);
+        setUserData(data.userName)
         console.log('Signed In:', data.userSignedIn)
+        console.log('userName', data.userName)
     })
     .catch(error => {
         console.error('Session request failed:', error);
@@ -74,7 +77,7 @@ function Header() {
             <button className="HeaderButton" onClick={() => navigate('/about')}>
                 About
             </button>
-            {userSignedIn ? (<div className="HeaderButton">Signed In</div>) : 
+            {userSignedIn ? (<div className="HeaderButton" onClick={logOut}>{userData}</div>) : 
             (<button className="HeaderButton" onClick={() => navigate('/signUp')}>
                 Get Started
             </button>)}

@@ -37,7 +37,8 @@ app.post('/accountInfo', async (req, res) => {
         const result = await collection.insertOne(newUser);
 
         req.session.user = {
-            userSignedIn: true
+            userSignedIn: true,
+            userName : newUser.userName
         }
 
         req.session.save((error) => {
@@ -65,21 +66,33 @@ app.post('/accountInfo', async (req, res) => {
 app.post('/logIn', async (req, res) => {
     try{
         console.log('POST /logIn was reached!');
-        const {name, password} = req.body
+        const {userName, password} = req.body
+        console.log(userName)
 
-        const userLoginDetails = {name, password}
+        //const userLoginDetails = {userName, password}
         const collection = dbHolder.collection('accounts')
-        const userSearch = await collection.findOne(
-            {name: userLoginDetails.name},
-            {password: userLoginDetails.password}
-        );
+        const userSearch = await collection.findOne({
+            userName: userName,
+            password: password
+
+        });
 
         if(userSearch)
         {
             req.session.user = {
-                userSignedIn: true
+                userSignedIn: true,
+                userName: userSearch.userName
             }
             console.log('User is signed in!')
+
+            req.session.save((error) => {
+            if(error) {
+                console.error('Session had a problem saving:', error);
+                return res.status(500).json({
+                    error: 'Failed to save'
+                })
+            }
+        });
         }
         else {
             console.log('Wrong Password')
@@ -105,7 +118,8 @@ app.post('/logOut', (req, res) => {
 
 app.get('/api/session', (req, res) => {
     res.json({
-        userSignedIn: Boolean(req.session.user?.userSignedIn)
+        userSignedIn: Boolean(req.session.user?.userSignedIn),
+        userName: req.session.user?.userName ?? null
     })
 })
 

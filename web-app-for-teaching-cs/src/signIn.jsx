@@ -34,7 +34,7 @@ async function signInBackend(e) {
     const password = document.getElementById('password').value
 
     try {
-        const response = await fetch('http://localhost:3000/accountInfo', {
+        const response = await fetch('http://localhost:3000/logIn', {
         method: 'POST',
         credentials: 'include',
         headers: {
