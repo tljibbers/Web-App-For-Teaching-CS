@@ -75,26 +75,6 @@ app.post('/logIn', async (req, res) => {
 
         });
 
-        /*if(userSearch)
-        {
-            req.session.user = {
-                userSignedIn: true,
-                userName: userSearch.userName
-            }
-            console.log('User is signed in!')
-
-            req.session.save((error) => {
-            if(error) {
-                console.error('Session had a problem saving:', error);
-                return res.status(500).json({
-                    error: 'Failed to save'
-                })
-            }
-        });
-        }
-        else {
-            console.log('Wrong Password')
-        }*/
         if(!userSearch) {
             console.log('Incorrect username or password')
 
