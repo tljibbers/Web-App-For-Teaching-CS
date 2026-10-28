@@ -67,17 +67,15 @@ app.post('/logIn', async (req, res) => {
     try{
         console.log('POST /logIn was reached!');
         const {userName, password} = req.body
-        console.log(userName)
-
-        //const userLoginDetails = {userName, password}
         const collection = dbHolder.collection('accounts')
+
         const userSearch = await collection.findOne({
             userName: userName,
             password: password
 
         });
 
-        if(userSearch)
+        /*if(userSearch)
         {
             req.session.user = {
                 userSignedIn: true,
@@ -96,10 +94,46 @@ app.post('/logIn', async (req, res) => {
         }
         else {
             console.log('Wrong Password')
+        }*/
+        if(!userSearch) {
+            console.log('Incorrect username or password')
+
+            return res.status(401).json({
+                success: false,
+                message: 'Incorrect username or password'
+            })
         }
+
+        req.session.user = {
+            userSignedIn: true,
+            userName: userSearch.userName
+        }
+
+        req.session.save((error) => {
+            if(error) {
+                console.error('Session had a problem saving:', error)
+                return res.status(500).json({
+                    error: 'Failed to save'
+                })
+            }
+
+            console.log('User is signed in')
+
+            return res.status(200).json({
+                success: true,
+                message: 'Login Successful',
+                userSignedIn: true,
+                userName: userSearch.userName
+            })
+        })
+
     } catch (error){
         console.error('Failed:', error);
-        res.status(500).json({error: 'Internal Server Error'})
+        
+        return res.status(500).json({
+            success: false,
+            message: 'Internal Server Error'
+        })
     }
 })
 

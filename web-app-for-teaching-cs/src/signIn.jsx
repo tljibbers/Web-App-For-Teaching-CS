@@ -35,25 +35,27 @@ async function signInBackend(e) {
 
     try {
         const response = await fetch('http://localhost:3000/logIn', {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({userName, password})
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({userName, password})
         })
 
+        const data = await response.json(); 
+
         if(!response.ok) {
-        throw new Error('HTTP error: ${response.status}');
+            alert(data.message || 'There was a problem signing in.')
+            return
         }
 
-        const data = await response.json();
-        console.log('Server Response:', data)
         window.location.href = 'http://localhost:5173/home'
         
     }
     catch (error) {
         console.error('Error with data sent:', error)
+        alert('Something went wrong. Try again.')
     }
 
 
