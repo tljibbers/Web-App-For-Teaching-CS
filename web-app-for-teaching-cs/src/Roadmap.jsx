@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 function Roadmap() {
   const navigate = useNavigate();
   const [userSignedIn, setUserSignedIn] = useState(false);  
+  const [sessionCheck, setSessionCheck] = useState(false);
   const [userLessonITPNum, setUserLessonITPNum] = useState(0);
   const [userLessonDSANum, setUserLessonDSANum] = useState(0);
     useEffect(() => {
@@ -16,19 +17,52 @@ function Roadmap() {
       })
       .then(response => {
           if(!response.ok) {
-              throw new Error('HTTP error: ${response.status}');
+              throw new Error(`HTTP error: ${response.status}`);
           }
           return response.json();
       })
       .then(data => {
           setUserSignedIn(data.userSignedIn);   
-          setUserLessonITPNum(data.userLessonsCompleteITP)
-          setUserLessonDSANum(data.userLessonsCompleteDSA)
           console.log('Signed In:', data.userSignedIn)       
       })
       .catch(error => {
           console.error('Session request failed:', error);
-      });
+      }).finally(() => {
+        setSessionCheck(true)
+      })
+      
+    }, []);
+
+    useEffect(() => {
+
+        if(!setSessionCheck)
+        {
+            return
+        }
+
+        if (!userSignedIn)
+        {
+            return
+        }
+        fetch('http://localhost:3000/api/progressValues', {
+            method: 'GET',
+            credentials: 'include'
+        })
+        .then(response => {
+            if(!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            setUserLessonITPNum(data.totalCountITPNum)
+            setUserLessonDSANum(data.totalCountDSANum)
+            console.log('got values:', data.totalCountITPNum)
+            console.log('got values:', data.totalCountDSANum)
+        })
+        .catch(error => {
+            console.error('Session request failed:', error);
+        })
     }, []);
 
   return (
@@ -43,7 +77,7 @@ function Roadmap() {
            <button id="oopButton">Object Oriented Programming</button>
            <button id="dsaButton" onClick={() => navigate('/data-structures-and-algorithms')}>
               <div>Data Structures And Algorithms</div>
-              {userSignedIn? (<div>{userLessonDSANum}/9 Completed</div>) : null}</button>
+              {userSignedIn? (<div>0/9 Completed</div>) : null}</button>
            <button id="extraConcepts">Extra Concepts</button>
            <button id='projectExercises'>Project Exercises</button>
         </div>

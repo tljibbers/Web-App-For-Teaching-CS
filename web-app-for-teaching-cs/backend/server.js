@@ -216,6 +216,48 @@ app.get('/api/session', (req, res) => {
     })
 })
 
+app.get('/api/progressValues', async (req, res) => {
+    try {
+        
+        const userName = req.session.user?.userName;
+
+        if(!userName) {
+            return res.status(401).json({
+                success: false,
+                message: 'User is not signed in'
+            })
+        }
+
+        const collection = dbHolder.collection('accounts')
+        const userSearch = await collection.findOne({
+            userName: req.session.user.userName
+        })
+
+        if(!userSearch)
+        {
+            return res.status(401).json({
+                success: false,
+                messgae: 'User is Not Listed'
+            })
+        }
+
+        let totalCountITP = userSearch.totalLessonsCompleteITP ?? 0;
+        let totalCountDSA = userSearch.totalLessonsCompleteDSA ?? 0;
+
+      
+
+        res.json({
+            totalCountITPNum : totalCountITP,
+            totalCountDSANum : totalCountDSA 
+        })
+    }catch (error){
+        return res.status(500).json({
+            success: false,
+            message: 'An error occured when getting the values'
+        })
+    }
+})
+
 
 
 
