@@ -29,16 +29,18 @@ app.post('/accountInfo', async (req, res) => {
     try{
         console.log('POST /accountInfo was reached!');
         console.log('Request body:', req.body);
-        const {name, lastName, email, userName, password} = req.body
+        const {name, lastName, email, userName, password, totalLessonsCompleteITP, totalLessonsCompleteDSA, lessonCompleteITP, lessonCompleteDSA} = req.body
 
         const collection = dbHolder.collection('accounts')
 
-        const newUser = {name, lastName, email, userName, password};
+        const newUser = {name, lastName, email, userName, password, totalLessonsCompleteITP, totalLessonsCompleteDSA, lessonCompleteITP, lessonCompleteDSA};
         const result = await collection.insertOne(newUser);
 
         req.session.user = {
             userSignedIn: true,
-            userName : newUser.userName
+            userName : newUser.userName,
+            userLessonsCompleteITP : newUser.totalLessonsCompleteITP,
+            userLessonsCompleteDSA : newUser.totalLessonsCompleteDSA
         }
 
         req.session.save((error) => {
@@ -86,7 +88,9 @@ app.post('/logIn', async (req, res) => {
 
         req.session.user = {
             userSignedIn: true,
-            userName: userSearch.userName
+            userName: userSearch.userName,
+            userLessonsCompleteITP : userSearch.totalLessonsCompleteITP,
+            userLessonsCompleteDSA : userSearch.totalLessonsCompleteDSA
         }
 
         req.session.save((error) => {
@@ -103,7 +107,9 @@ app.post('/logIn', async (req, res) => {
                 success: true,
                 message: 'Login Successful',
                 userSignedIn: true,
-                userName: userSearch.userName
+                userName: userSearch.userName,
+                userLessonsCompleteITP : userSearch.totalLessonsCompleteITP,
+                userLessonsCompleteDSA : userSearch.totalLessonsCompleteDSA
             })
         })
 
@@ -129,11 +135,84 @@ app.post('/logOut', (req, res) => {
     })
 })
 
+app.post('/lessonComplete', async (req, res) => {
+    try{
+        const {lessonTitle, whatSubjectType} = req.body
+
+        if (!lessonTitle || !['ITP', 'DSA'].includes(whatSubjectType)) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid lesson title or subject type'
+            })
+        }
+        const collection = dbHolder.collection('accounts')
+
+        const userSearch = await collection.findOne({
+            userName: req.session.user.userName
+        })
+
+        if(!userSearch)
+        {
+           return res.status(401).json({
+                success: false,
+                message: 'User Is Not Listed'
+            })
+        }
+
+        const subject = `lessonComplete${whatSubjectType}`
+        let totalCount = `totalLessonsComplete${whatSubjectType}`
+        const lessonPath = `${subject}.${lessonTitle}`
+
+        const checkForCompletion = userSearch[subject]?.[lessonTitle] === true;
+
+        let totalCountNum = userSearch[totalCount] || 0
+
+        
+
+        if(checkForCompletion) {
+            totalCountNum = Math.max(0, totalCountNum - 1)
+        }
+        else{
+            totalCountNum = totalCountNum + 1;
+        }
+
+        await collection.updateOne(
+            { _id: userSearch._id},
+            {
+                $set: {
+                    [lessonPath]: !checkForCompletion,
+                    [totalCount]: totalCountNum
+                }
+            }
+        )
+
+        return res.status(200).json({
+            success: true,
+            message: checkForCompletion
+                ? 'Lesson was completed'
+                : 'Lesson marked as complete',
+                lessonTitle,
+                whatSubjectType
+        })
+
+
+    }catch (error){
+        console.error('Error completing lesson:', error);
+
+        return res.status(500).json({
+            success: false,
+            message: 'An error occured when trying to finish the lesson.'
+        })
+    }
+})
+
 
 app.get('/api/session', (req, res) => {
     res.json({
         userSignedIn: Boolean(req.session.user?.userSignedIn),
-        userName: req.session.user?.userName ?? null
+        userName: req.session.user?.userName ?? null,
+        userLessonsCompleteITP: req.session.user?.userLessonsCompleteITP ?? null,
+        userLessonsCompleteDSA: req.session.user?.userLessonsCompleteDSA ?? null
     })
 })
 

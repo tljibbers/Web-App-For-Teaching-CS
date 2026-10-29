@@ -50,6 +50,10 @@ async function signUpBackend(e) {
     const email = document.getElementById('email').value
     const userName = document.getElementById('username').value
     const password = document.getElementById('password').value
+    let totalLessonsCompleteITP = 0
+    let totalLessonsCompleteDSA = 0
+    let lessonCompleteITP = {}
+    let lessonCompleteDSA = {}
 
     try {
       const response = await fetch('http://localhost:3000/accountInfo', {
@@ -58,7 +62,7 @@ async function signUpBackend(e) {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({name, lastName, email, userName, password})
+        body: JSON.stringify({name, lastName, email, userName, password, totalLessonsCompleteITP, totalLessonsCompleteDSA, lessonCompleteITP, lessonCompleteDSA})
       })
 
       if(!response.ok) {
