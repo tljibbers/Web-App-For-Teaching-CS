@@ -249,7 +249,7 @@ function ArrayLesson() {
                         <div ref={jumpRef9} className="arrayHeader" id="jump9">Conclusion</div>
                         <div className="arrayTextContent">There is so much more to learn about what you can do with arrays, but that is for another time. With this lesson the basics were covered, and that is what really matters in this roadmap. Arrays are some of the most important elements of programming, and understanding them will open up a lot of possibilities when it comes to developing projects. In the next lesson, we’ll take a look at if/then/else. One thing about programming if you haven’t already caught on, is that a lot of things build upon each other, so you will most definitely see arrays return in the next lesson to help with your understanding. For the meantime, if you’re feeling up to it, take some time to play the game that accompanies this lesson!</div>
                         <div className="arrayTextContent">Game Link</div>
-                        {userSignedIn && (<button onClick={() => waitForLessonComplete()}>{userCompleteLessonCheck?.['arrays'] ? "Complete!" : "Mark as Complete"}</button>)}
+                        {userSignedIn && (<button className={userCompleteLessonCheck?.['arrays'] ? 'completeButton' : 'incompleteButton'} onClick={() => waitForLessonComplete()}>{userCompleteLessonCheck?.['arrays'] ? "Complete!" : "Mark as Complete"}</button>)}
                     </div>
                 </div>
             </div>
