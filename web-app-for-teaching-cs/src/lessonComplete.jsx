@@ -14,4 +14,6 @@ export async function lessonComplete(lessonTitle, whatSubjectType) {
     } catch (error) {
         console.error('Session request failed:', error);
     }
+
+    return true;
 } 

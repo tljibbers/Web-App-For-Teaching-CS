@@ -248,7 +248,11 @@ app.get('/api/progressValues', async (req, res) => {
 
         res.json({
             totalCountITPNum : totalCountITP,
-            totalCountDSANum : totalCountDSA 
+            totalCountDSANum : totalCountDSA, 
+
+            isLessonCompleteITP: userSearch.lessonCompleteITP ?? {},
+            isLessonCompleteDSA: userSearch.lessonCompleteDSA ?? {}
+
         })
     }catch (error){
         return res.status(500).json({

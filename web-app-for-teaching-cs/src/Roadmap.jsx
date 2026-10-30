@@ -35,15 +35,11 @@ function Roadmap() {
 
     useEffect(() => {
 
-        if(!setSessionCheck)
+       if(!sessionCheck || !userSignedIn)
         {
             return
         }
 
-        if (!userSignedIn)
-        {
-            return
-        }
         fetch('http://localhost:3000/api/progressValues', {
             method: 'GET',
             credentials: 'include'
@@ -55,15 +51,15 @@ function Roadmap() {
             return response.json();
         })
         .then(data => {
-            setUserLessonITPNum(data.totalCountITPNum)
-            setUserLessonDSANum(data.totalCountDSANum)
+            setUserLessonITPNum(data.totalCountITPNum ?? 0)
+            setUserLessonDSANum(data.totalCountDSANum ?? 0)
             console.log('got values:', data.totalCountITPNum)
             console.log('got values:', data.totalCountDSANum)
         })
         .catch(error => {
             console.error('Session request failed:', error);
         })
-    }, []);
+    }, [sessionCheck, userSignedIn]);
 
   return (
     <>
@@ -77,7 +73,7 @@ function Roadmap() {
            <button id="oopButton">Object Oriented Programming</button>
            <button id="dsaButton" onClick={() => navigate('/data-structures-and-algorithms')}>
               <div>Data Structures And Algorithms</div>
-              {userSignedIn? (<div>0/9 Completed</div>) : null}</button>
+              {userSignedIn? (<div>{userLessonDSANum}/9 Completed</div>) : null}</button>
            <button id="extraConcepts">Extra Concepts</button>
            <button id='projectExercises'>Project Exercises</button>
         </div>

@@ -32,7 +32,9 @@ import array19 from './lessonScreenshots/arrays/arrays19.png'
 function ArrayLesson() {
 
     const navigate = useNavigate();
-    const [userSignedIn, setUserSignedIn] = useState(false);  
+    const [userSignedIn, setUserSignedIn] = useState(false); 
+    const [sessionCheck, setSessionCheck] = useState(false); 
+    const [userCompleteLessonCheck, setUserCompleteLessonCheck] = useState({});
     useEffect(() => {
         fetch('http://localhost:3000/api/session', {
             method: 'GET',
@@ -50,8 +52,49 @@ function ArrayLesson() {
         })
         .catch(error => {
             console.error('Session request failed:', error);
-        });
+        }).finally(() => {
+            setSessionCheck(true)
+        })
     }, []);
+    useEffect(() => {
+
+       if(!sessionCheck || !userSignedIn)
+        {
+            return
+        }
+
+        fetch('http://localhost:3000/api/progressValues', {
+            method: 'GET',
+            credentials: 'include'
+        })
+        .then(response => {
+            if(!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            setUserCompleteLessonCheck(data.isLessonCompleteITP ?? {})
+        })
+        .catch(error => {
+            console.error('Session request failed:', error);
+        })
+    }, [sessionCheck, userSignedIn]);
+
+    async function waitForLessonComplete() {
+        try {
+            await lessonComplete('arrays', 'ITP');
+
+            setUserCompleteLessonCheck(previous => ({
+                ...previous,
+                arrays: !previous.arrays
+            }))
+        }
+        catch (error)
+        {
+            console.log(error)
+        }
+    }
 
     const jumpRef = useRef(null);
     const scroll = () => {
@@ -206,7 +249,7 @@ function ArrayLesson() {
                         <div ref={jumpRef9} className="arrayHeader" id="jump9">Conclusion</div>
                         <div className="arrayTextContent">There is so much more to learn about what you can do with arrays, but that is for another time. With this lesson the basics were covered, and that is what really matters in this roadmap. Arrays are some of the most important elements of programming, and understanding them will open up a lot of possibilities when it comes to developing projects. In the next lesson, we’ll take a look at if/then/else. One thing about programming if you haven’t already caught on, is that a lot of things build upon each other, so you will most definitely see arrays return in the next lesson to help with your understanding. For the meantime, if you’re feeling up to it, take some time to play the game that accompanies this lesson!</div>
                         <div className="arrayTextContent">Game Link</div>
-                        {userSignedIn? (<button onClick={() => lessonComplete('arrays', 'ITP')}>Mark As Complete</button>) : null}
+                        {userSignedIn && (<button onClick={() => waitForLessonComplete()}>{userCompleteLessonCheck?.['arrays'] ? "Complete!" : "Mark as Complete"}</button>)}
                     </div>
                 </div>
             </div>
