@@ -1,7 +1,7 @@
 .roadmapButtonContainer {
     position: relative;
     display: inline-block;
-
+    cursor: pointer;  
 }
 
 .roadmapButtonContainer img {
@@ -9,6 +9,7 @@
     max-width: 100%;
     height: auto;
 }
+
 
 .lockImage {
     position: absolute;
