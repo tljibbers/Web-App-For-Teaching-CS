@@ -34,7 +34,7 @@ function Header() {
 
   return (
     <div className="headerBox">
-        <div id="website-title" onClick={() => navigate('/home')}>Website Title (Alpha)</div>
+        <div id="website-title" onClick={() => navigate('/home')}>Root To Tree (Alpha)</div>
         <div className="Lesson-GetStarted">
             <div className='dropdown'>
                 <div className="HeaderButton" id="lessons-dropdown" onClick={dropdownClick}>

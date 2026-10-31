@@ -16,7 +16,7 @@ function RoadmapButton(props){
     }
 
     return (
-        <div className="roadmapButtonContainer" id={props.id}>
+        <div className="roadmapButtonContainer" id={props.id} >
             <img src={hexagonImagePlain} className="roadmapButton" width="120" height="116"></img>
             <img src={lockImage} className="lockImage" width="20" height="20"></img>
             <div className="roadmapButtonTextLocked">{props.name}</div>

@@ -1,13 +1,20 @@
 .roadmapButtonContainer {
     position: relative;
     display: inline-block;
-    cursor: pointer;  
+    cursor: pointer; 
+    transition: scale 0.1s ease;
+    transform-origin: center center; 
+    overflow-x: auto;
 }
 
 .roadmapButtonContainer img {
     display: block;
     max-width: 100%;
     height: auto;
+}
+
+.roadmapButtonContainer:hover {
+    scale: 1.03;
 }
 
 
@@ -45,6 +52,7 @@
     align-items: center;
     
 }
+
 
 
 
@@ -88,4 +96,22 @@
 #recursion {
     transform: translate(560px, 320px);
 }
+
+#DSAButtonContainer {
+    transform: translateY(230%);
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+#arrays-and-dsa, #searching-techniques {
+    transform: translateY(50%);
+}
+
+#stacks-queues, #trees {
+    transform: translateY(-50%);
+}
+
+
+
 
