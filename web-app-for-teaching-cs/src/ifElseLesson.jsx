@@ -2,8 +2,11 @@ import Header from "./Header";
 import './ifElse.css'
 import {useNavigate} from 'react-router-dom';
 import {useRef} from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { IfElseQuizQuestions1 } from "./ifElseQuiz";
 import { IfElseQuizQuestions2 } from "./ifElseQuiz2";
+import { lessonComplete } from './lessonComplete';
 
 import if1 from './lessonScreenshots/if-else/if1.png'
 import if2 from './lessonScreenshots/if-else/if2.png'
@@ -23,6 +26,70 @@ import if14 from './lessonScreenshots/if-else/if14.png'
 function IfElseLesson() {
 
     const navigate = useNavigate();
+    const [userSignedIn, setUserSignedIn] = useState(false); 
+    const [sessionCheck, setSessionCheck] = useState(false); 
+    const [userCompleteLessonCheck, setUserCompleteLessonCheck] = useState({});
+     useEffect(() => {
+        fetch('http://localhost:3000/api/session', {
+            method: 'GET',
+            credentials: 'include'
+        })
+        .then(response => {
+            if(!response.ok) {
+                throw new Error('HTTP error: ${response.status}');
+            }
+            return response.json();
+        })
+        .then(data => {
+            setUserSignedIn(data.userSignedIn);   
+            console.log('Signed In:', data.userSignedIn)       
+        })
+        .catch(error => {
+            console.error('Session request failed:', error);
+        }).finally(() => {
+            setSessionCheck(true)
+        })
+    }, []);
+    useEffect(() => {
+
+       if(!sessionCheck || !userSignedIn)
+        {
+            return
+        }
+
+        fetch('http://localhost:3000/api/progressValues', {
+            method: 'GET',
+            credentials: 'include'
+        })
+        .then(response => {
+            if(!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            setUserCompleteLessonCheck(data.isLessonCompleteITP ?? {})
+        })
+        .catch(error => {
+            console.error('Session request failed:', error);
+        })
+    }, [sessionCheck, userSignedIn]);
+
+    async function waitForLessonComplete() {
+        try {
+            await lessonComplete('if_else', 'ITP');
+
+            setUserCompleteLessonCheck(previous => ({
+                ...previous,
+                if_else: !previous.if_else
+            }))
+        }
+        catch (error)
+        {
+            console.log(error)
+        }
+    }
+
     const jumpRef = useRef(null);
     const scroll = () => {
         jumpRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
@@ -183,6 +250,7 @@ function IfElseLesson() {
                         <div ref={jumpRef11} className="ifElseHeader">Conclusion</div>
                         <div className="ifElseTextContent">So that was the if statement. Not too bad right? Once again reiterating from the beginning, the if statement is probably one of if not the most important fundamental to learn in programming, because it is literally everywhere. You’d do great to do a little bit of practice making if statements to try to get a full hang of it, because our next lesson, loops, will heavily involve if statements. From now on, there won’t be a lesson that doesn’t have a mention of the if statement. If you do want to get more practice, you can play the game that is linked to this lesson!</div>
                         <div className="ifElseTextContent">Game Link</div>
+                         {userSignedIn && (<button className={userCompleteLessonCheck?.['if_else'] ? 'completeButton' : 'incompleteButton'} onClick={() => waitForLessonComplete()}>{userCompleteLessonCheck?.['if_else'] ? "Complete!" : "Mark as Complete"}</button>)}
                     </div>
 
                 </div>
