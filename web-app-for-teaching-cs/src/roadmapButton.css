@@ -55,53 +55,19 @@
 
 
 
-
-#hello-world {
-    transform: translate(119px, 400px);
-}
-
-
-#variables {
-    transform: translate(210px, 320px);
-}
-
-#operators {
-    transform: translate(309px, 400px);
-}
-
-#functions {
-    transform: translate(410px, 460px);
-}
-
-#arrays {
-    transform: translate(510px, 400px);
-}
-
-#data-types {
-    transform: translate(-50px, 200px);
-}
-
-#type-casting {
-    transform: translate(50px, 200px);
-}
-
-#if-else-then {
-    transform: translate(360px, 320px);
-}
-
-#loops {
-    transform: translate(460px, 400px);
-}
-
-#recursion {
-    transform: translate(560px, 320px);
-}
-
-#DSAButtonContainer {
+#ITPButtonContainer, #DSAButtonContainer {
     transform: translateY(230%);
     display: flex;
     gap: 30px;
     justify-content: center;
+}
+
+#variables, #data-types, #recursion {
+    transform: translateY(-50%);
+}
+
+#functions, #if-else-then {
+    transform: translateY(50%);
 }
 
 #arrays-and-dsa, #searching-techniques {
