@@ -80,3 +80,24 @@ input {
     color: #2EB62C;
 }
 
+
+#sign-in { 
+    height: 300px;
+}
+
+#sign-in-title {
+    font-size: 45px;
+    font-weight: 100;
+    color: white;
+    text-align: center;
+    padding-top: 120px;
+}
+
+#login-link-text {
+    cursor: pointer;
+    color: #2EB62C;
+}
+
+#login-link-text:hover {
+    color: #1f7a1c;
+}

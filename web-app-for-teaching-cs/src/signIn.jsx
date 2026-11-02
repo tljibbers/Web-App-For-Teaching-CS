@@ -8,20 +8,20 @@ function SignIn() {
     return (
         <>
             <Header />
-            <div className="sign-up">
-            <div id="sign-up-title">Sign In</div>
-            <form id='sign-up-form' onSubmit={signInBackend}>
-                <div>Username</div>
-                <input type="text" id="username" name="username" />
-                <div>Password</div>
-                <input type="password" id="password" name="password" />
-                <br/>
-                <button type="submit" id="submitSignUp">Sign In</button>
-                <div className="login-link">
-                    <div>Don't Have An Account? </div>
-                    <div onClick={() => navigate('/signUp')}>Sign Up</div>
-                </div>
-            </form>
+            <div id="sign-in-title">Been Here Before? Sign In!</div>
+            <div className="sign-up" id="sign-in">
+                <form id='sign-up-form' onSubmit={signInBackend}>
+                    <div>Username</div>
+                    <input type="text" id="username" name="username" />
+                    <div>Password</div>
+                    <input type="password" id="password" name="password" />
+                    <br/>
+                    <button type="submit" id="submitSignUp">Sign In</button>
+                    <div className="login-link">
+                        <div>Don't Have An Account? </div>
+                        <div onClick={() => navigate('/signUp')} id="login-link-text">Sign Up</div>
+                    </div>
+                </form>
             </div>
         </>
         );
