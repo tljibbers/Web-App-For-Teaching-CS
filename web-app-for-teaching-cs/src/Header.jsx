@@ -77,9 +77,9 @@ function Header() {
             <button className="HeaderButton" onClick={() => navigate('/about')}>
                 About
             </button>
-            <button className='HeaderButton' onClick={() => navigate('/signIn')}>
+            {!userSignedIn ? <button className='HeaderButton' onClick={() => navigate('/signIn')}>
                 Sign In    
-            </button>
+            </button> : null}
             {userSignedIn ? (<div className="HeaderButton" onClick={logOut}>{userData}</div>) : 
             (<button className="HeaderButton" onClick={() => navigate('/signUp')}>
                 Get Started
