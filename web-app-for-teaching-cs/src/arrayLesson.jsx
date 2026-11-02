@@ -149,8 +149,8 @@ function ArrayLesson() {
             <Header />
             <div className="arraysContainer">
                 <div className="tableOfContentsArrays">
-                    <div onClick={() => navigate('/intro-to-programming')}> Back To Roadmap </div>
-                    <div>Table of Contents</div>
+                    <div onClick={() => navigate('/intro-to-programming')} id='back-to-roadmap'> {'>'} Back To Roadmap </div>
+                    <div id='table-of-contents'>Table of Contents</div>
                     <div id="what-is-an-array" onClick={scroll}>What is an Array?</div>
                     <div id="storing-things-in-an-array" onClick={scroll2}>Storing Things in an Array</div>
                     <div id="indexes" onClick={scroll3}>Indexes</div>

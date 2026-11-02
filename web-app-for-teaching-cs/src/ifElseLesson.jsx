@@ -151,8 +151,8 @@ function IfElseLesson() {
             <Header />
             <div className="ifElseContainer">
                 <div className="tableOfContentsIfElse">
-                    <div onClick={() => navigate('/intro-to-programming')}> Back To Roadmap </div>
-                    <div>Table of Contents</div>
+                    <div onClick={() => navigate('/intro-to-programming')} id='back-to-roadmapElse'> {'>'} Back To Roadmap </div>
+                    <div id='table-of-contentsElse'>Table of Contents</div>
                     <div id="what-even-is-an-if-statement" onClick={scroll}>What Even Is An If Statement?</div>
                     <div id="using-if" onClick={scroll2}>Using If</div>
                     <div id="adding-else" onClick={scroll3}>Adding Else</div>

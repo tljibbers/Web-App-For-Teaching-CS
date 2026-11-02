@@ -124,8 +124,8 @@ function BigOLesson() {
             <Header />
             <div className="arraysContainer">
                 <div className="tableOfContentsArrays">
-                    <div onClick={() => navigate('/data-structures-and-algorithms')}> Back To Roadmap </div>
-                    <div>Table Of Contents</div>
+                    <div onClick={() => navigate('/data-structures-and-algorithms')} id='back-to-roadmap'> {'>'} Back To Roadmap </div>
+                    <div id='table-of-contents'>Table Of Contents</div>
                     <div id="the-big-bad-o" onClick={scroll}>The Big Bad O</div>
                     <div id="what-is-big-o" onClick={scroll2}>What Is Big O Notation</div>
                     <div id="time-and-space-complexity" onClick={scroll3}>Time and Space Complexity</div>
