@@ -1,6 +1,9 @@
 #sign-up-title {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 45px;
+    font-weight: 100;
+    color: white;
+    text-align: center;
+    padding-top: 40px;
 }
 
 .sign-up {
@@ -12,13 +15,16 @@
     color: white;
     width: 430px;
     margin: auto;
-    height: 450px;
+    height: 470px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 25px;
+    border-radius: 10px;
     padding-top: 20px;
-    
+    margin-top: 20px;
+    border-color: #505050;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .full-name {
@@ -32,30 +38,45 @@ form {
     padding-top: 20px;
 }
 input {
-    border-radius: 10px;
-    border-style: none;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #505050;
+    background-color: #3b3b3b;
 }
 
-.submitSignUp {
-    width: 100px;
+#submitSignUp {
+    width: 360px;
     height: 30px;
     align-self: center;
-    border-radius: 10px;
+    border-radius: 5px;
     border-style: none;
-
+    cursor: pointer;
+    background-color: #87CEEB;
 }
 
+#submitSignUp:hover {
+    background-color: #7ec1db;
+}
+
+
+
 #email, #username, #password, #confirmPassword {
-    width: 355px;
+    width: 360px;
 }
 
 #firstName, #lastName, #email, #username, #password, #confirmPassword {
-    height: 20px;
+    height: 30px;
 }
 
 .login-link {
     display: flex;
     justify-content: center;
     gap: 5px;
+}
+
+#login-link-text {
+    cursor: pointer;
+    color: #2EB62C;
 }
 

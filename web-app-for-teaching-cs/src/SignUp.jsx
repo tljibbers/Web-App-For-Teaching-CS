@@ -8,8 +8,8 @@ function SignUp() {
     return (
       <>
           <Header />
+          <div id="sign-up-title">Sign Up. It's Totally Free!</div>
           <div className="sign-up">
-            <div id="sign-up-title">Sign Up</div>
             <form id='sign-up-form' onSubmit={signUpBackend}>
               <div className="full-name">
                 <div>
@@ -33,7 +33,7 @@ function SignUp() {
               <button type="submit" id="submitSignUp">Sign Up</button>
               <div className="login-link">
                 <div>Already Have an Account? </div>
-                <div onClick={() => navigate('/signIn')}>Login</div>
+                <div onClick={() => navigate('/signIn')} id="login-link-text">Login</div>
               </div>
             </form>
           </div>
