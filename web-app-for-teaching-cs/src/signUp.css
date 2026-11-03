@@ -101,3 +101,9 @@ input {
 #login-link-text:hover {
     color: #1f7a1c;
 }
+
+input:focus {
+    outline: none;
+    border-color: #2EB62C;
+    box-shadow: 0 0 2px #2EB62C;
+}

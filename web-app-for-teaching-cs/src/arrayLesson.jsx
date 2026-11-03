@@ -174,7 +174,7 @@ function ArrayLesson() {
                         <div className="arrayTextContent">The main reason arrays even exist is so objects can have something to be stored in. It’s one of the most convenient things in programming. You wouldn’t want to have a bunch of variables floating around your program, so it’s best to put all of it in one nice bundle. You’re probably itching to see what storing things in arrays actually looks like, so we’ll take that example of your favorite fruit from earlier and turn it into code form.</div>
                         <img className="arrayImg" src={array1}/>
                         <div className="arrayTextContent">Did I guess your favorite fruit right? Well depending on how many people read this I’m bound to get one of them right. Either way, very simple right? Now you’re probably wondering, “Well I have this array of my favorite fruits, but I remembered some other fruits I wanted to add. Do I have to make an entirely new array for that?” </div>
-                        <div className="arrayTextContent">The answer is no! You don’t have to. This is where we talk about the append function. The append function allows you to add new elements to the array without having to annoyingly make a new array. Here's how you would do it:</div>
+                        <div className="arrayTextContent">The answer is <span className="boldedText">no!</span> You don’t have to. This is where we talk about the append function. The append function allows you to add new elements to the array without having to annoyingly make a new array. Here's how you would do it:</div>
                         <img className="arrayImg" src={array2}/>
                     </div>
                     <div>
@@ -183,32 +183,30 @@ function ArrayLesson() {
                         <img className="arrayImg" src={array3}/>
                         <div className="arrayTextContent">You’re probably wondering to yourself, why does that say 0? Well, in a majority of programming languages, the first element in an array is actually represented by an index of 0 instead of 1. This can be a very common source of confusion, so please take note of that when you use indexes. Let's try something interesting. Let’s say you have a huge array, and you don’t know exactly how many elements are in said array, but you want to know what the last element in the array is. How exactly would we do that? Well, it’s very simple!</div>
                         <img className="arrayImg" src={array5}/>
-                        <div className="arrayTextContent">The last thing I want to cover with indexes is what happens when you put an index that doesn’t exist. If you had 7 elements in an array, and then you tried to look to see for a potential 8th, what would happen? This will throw you an out of bounds error, because your array is not big enough to have an 8th element.</div>
+                        <div className="arrayTextContent">The last thing I want to cover with indexes is what happens when you put an index that doesn’t exist. If you had 7 elements in an array, and then you tried to look to see for a potential 8th, what would happen? This will throw you an <span className="boldedText">out of bounds error</span>, because your array is not big enough to have an 8th element.</div>
                         <img className="arrayImg" src={array4}/>
                     </div>
                     <div>
                         <div ref={jumpRef4} className="arrayHeader" id="jump4">Interactive Quiz:</div>
                         <div className="arrayTextContent">Let's take a break from all of the reading and get into some questions!</div>
                         <div className="quizContainer">
-                            <img src={arrow} id='arrowLeft' height='50px'></img>
-                            <QuizQuestionsQuiz1/>
-                            <img src={arrow} id='arrow' height='50px'></img>
+                            <QuizQuestionsQuiz1/>    
                         </div>
                     </div>
                     <div>
                         <div ref={jumpRef5} className="arrayHeader" id="jump5">Removing Things in an Array</div>
                         <div className="arrayTextContent">So we can add stuff to our array, but what if we want to take something out? Let’s say you made your array of favorite fruits, and then realized that you didn’t actually like one of them that much. You’d want to get rid of it, it shouldn’t be there! To do that though in Python, there are actually a couple of different methods you could do.</div>
                         <div className="arrayTextContent">The first two methods use the index as a parameter to remove the element:</div>
-                        <div className="arrayTextContent">del Keyword: Deletes whatever item you choose at a specific position. </div>
+                        <div className="arrayTextContent"><span className="boldedText">del Keyword</span>: Deletes whatever item you choose at a specific position. </div>
                         <img className="arrayImg" src={array6}/>
                         <div className="arrayTextContent">You can even use it to delete multiple elements in succession. Instead of just putting in a single index, you would put in the parameter a start index and an end index, separated by a double colon, which is referred to as a slice.</div>
                         <img className="arrayImg" src={array7}/>
-                        <div className="arrayTextContent">pop() Method: The pop method takes out a specific item and returns said item as an individual value. By default, it removes the last item in the array. This means that if you were to create a new variable that uses the method, the new variable’s value would be the removed item. Take a look below:</div>
+                        <div className="arrayTextContent"><span className="boldedText">pop() Method</span>: The pop method takes out a specific item and returns said item as an individual value. By default, it removes the last item in the array. This means that if you were to create a new variable that uses the method, the new variable’s value would be the removed item. Take a look below:</div>
                         <img className="arrayImg" src={array8}/>
                         <div className="arrayTextContent">The next one uses the value as the parameter instead of the index number:</div>
-                        <div className="arrayTextContent">remove() Method: As said above, the remove method gets rid of an element using the actual element’s name instead of its index. If there are duplicates, it only removes the first instance of the item.</div>
+                        <div className="arrayTextContent"><span className="boldedText">remove() Method</span>: As said above, the remove method gets rid of an element using the actual element’s name instead of its index. If there are duplicates, it only removes the first instance of the item.</div>
                         <img className="arrayImg" src={array9} id="array9"/>
-                        <div className="arrayTextContent">If you want to wipe everything clean off the array, there is a method for that, it’s called the clear() method.</div>
+                        <div className="arrayTextContent">If you want to wipe everything clean off the array, there is a method for that, it’s called the <span className="boldedText">clear() method</span>.</div>
                         <img className="arrayImg" src={array10} id='array10'/>
                     </div>
                     <div>
@@ -218,7 +216,7 @@ function ArrayLesson() {
                         <img className="arrayImg" src={array11}/>
                         <div className="arrayTextContent">This would be wrong. Look at what happens when you print out the index elements:</div>
                         <img className="arrayImg" src={array12}/>
-                        <div className="arrayTextContent">You see that the second place and the fifth place are now the exact same element. We obviously don’t want that, so we need to have something hold onto the first index element, which we will lose in the initial swap. This is some like to call a temp, or temporary variable. Doesn’t have to be called that when you make it, it’s just a common name you’ll see when swapping is done. Here's what it would look like:</div>
+                        <div className="arrayTextContent">You see that the second place and the fifth place are now the exact same element. We obviously don’t want that, so we need to have something hold onto the first index element, which we will lose in the initial swap. This is some like to call a <span className="boldedText">temp, or temporary variable</span>. Doesn’t have to be called that when you make it, it’s just a common name you’ll see when swapping is done. Here's what it would look like:</div>
                         <img className="arrayImg" src={array13}/>
                         <div className="arrayTextContent">Now you know how to swap index elements! Let's get into something a lot more straightforward, which is just replacing an element with a new element. Instead of removing tomatoes from the fruits list, you want to get rid of grapes entirely, and replace them with Honeydew (wow). All you have to do is assign a new element to the array’s index.</div>
                         <img className="arrayImg" src={array14}/>
@@ -227,23 +225,22 @@ function ArrayLesson() {
                         <div ref={jumpRef7} className="arrayHeader" id="jump7">Interactive Quiz #2</div>
                         <div className="arrayTextContent">Let's take a break from all of the reading and get into some questions!</div>
                         <div className="quizContainer">
-                            <img src={arrow} id='arrowLeft' height='50px'></img>
-                            <QuizQuestionsQuiz2/>
-                            <img src={arrow} id='arrow' height='50px'></img>
+                            <QuizQuestionsQuiz2/>     
                         </div>
                     </div>
                     <div>
                         <div ref={jumpRef8} className="arrayHeader" id="jump8">Some Extra Concepts:</div>
-                        <div className="arrayTextContent">Sometimes you’re going to want to know exactly how long your array is. You can do that with the len() method, which returns a number that represents the total amount of elements in the array.</div>
+                        <div className="arrayTextContent">Sometimes you’re going to want to know exactly how long your array is. You can do that with the <span className="boldedText">len() method</span>, which returns a number that represents the total amount of elements in the array.</div>
                         <img className="arrayImg" src={array15}/>
-                        <div className="arrayTextContent">If you want to copy your array list, you can do so with the copy() method, which is self-explanatory.</div>
+                        <div className="arrayTextContent">If you want to copy your array list, you can do so with the <span className="boldedText">copy() method</span>, which is self-explanatory.</div>
                         <img className="arrayImg" src={array16}/>
-                        <div className="arrayTextContent">If you had an array full of numbers out of order and wanted to immediately sort them, you can use the sort() method to put them in place (there are other methods of doing this as well, but there are a lot of ways to go before you learn those).</div>
+                        <div className="arrayTextContent">If you had an array full of numbers out of order and wanted to immediately sort them, you can use the <span className="boldedText">sort() method</span> to put them in place (there are other methods of doing this as well, but there are a lot of ways to go before you learn those).</div>
                         <img className="arrayImg" src={array17}/>
-                        <div className="arrayTextContent">If you want to add an element at a specific position, you would use the insert() method, which inserts a new element into the array and extends the array length.</div>
+                        <div className="arrayTextContent">If you want to add an element at a specific position, you would use the <span className="boldedText">insert() method</span>, which inserts a new element into the array and extends the array length.</div>
                         <img className="arrayImg" src={array18}/>
-                        <div className="arrayTextContent">Realized that you wrote your list wrong and you actually meant to have it in reverse? No problem! Just use the reverse() method!</div>
+                        <div className="arrayTextContent">Realized that you wrote your list wrong and you actually meant to have it in reverse? No problem! Just use the <span className="boldedText">reverse() method</span>!</div>
                         <img className="arrayImg" src={array19}/>
+                        <div className="arrayTextContent">Honestly you would probably never use the reverse method for what was said earlier. Just needed a scenario!</div>
                     </div>
                     <div>
                         <div ref={jumpRef9} className="arrayHeader" id="jump9">Conclusion</div>

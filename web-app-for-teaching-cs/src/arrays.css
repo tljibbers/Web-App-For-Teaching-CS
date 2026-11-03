@@ -148,3 +148,7 @@
     color: white;
 }
 
+.boldedText {
+    font-weight: 600;
+    color: #87CEEB;
+}
