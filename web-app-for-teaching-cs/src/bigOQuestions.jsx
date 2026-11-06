@@ -90,7 +90,7 @@ export function QuestionFour({increment, rightAnswerIncrement}) {
                 }}
             >
                 <div className='questionBoxContainer' id="inputBox">
-                    <input type="text" id="answer"></input>
+                    <input type="text" className='questionBoxInput' id="answer"></input>
                 </div>
             </form>
         </div>

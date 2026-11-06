@@ -95,7 +95,9 @@
     border-radius: 20px;
     border-color: white;
     border-style: solid;
+    border-width: 1px;
     background-color: black;
+    box-shadow: 3px 3px 3px black;
 }
 
 #fragmentPush {

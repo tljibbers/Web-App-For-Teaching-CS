@@ -28,7 +28,7 @@ function QuestionOne({increment, rightAnswerIncrement}) {
                 }}
             >
                  <div className='questionBoxContainer' id="inputBox">
-                    <input type="text" id='answerOne'></input>
+                    <input type="text" className='questionBoxInput' id='answerOne'></input>
                 </div>
             </form>
         </div>
@@ -62,7 +62,7 @@ function QuestionTwo({increment, rightAnswerIncrement}) {
                 }}
             >
                  <div className='questionBoxContainer' id="inputBox">
-                    <input type="text" id="answerTwo"></input>
+                    <input type="text" className='questionBoxInput' id="answerTwo"></input>
                 </div>
             </form>
         </div>
@@ -140,7 +140,7 @@ function QuestionFive({increment, rightAnswerIncrement}) {
                 }}
             >
                 <div className='questionBoxContainer' id="inputBox">
-                    <input type="text" id='answerFive'></input>
+                    <input type="text" className='questionBoxInput'id='answerFive'></input>
                 </div>
             </form>
         </div>
