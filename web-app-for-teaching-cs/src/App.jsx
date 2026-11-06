@@ -10,6 +10,7 @@ import DsaRoadmap from './DsaRoadmap'
 import ArrayLesson from './arrayLesson'
 import IfElseLesson from './ifElseLesson'
 import BigOLesson from './bigOLesson'
+import WitchesBrewMainPage from './games/witchesBrew/witchesBrewMainPage'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/arrays" element={<ArrayLesson/>} />
                 <Route path="/if-else-then" element={<IfElseLesson/>} />
                 <Route path="/big-o" element={<BigOLesson/>}/>
+                <Route path="/witches-brew" element={<WitchesBrewMainPage/>} />
             </Routes>
         </BrowserRouter>
         </>
