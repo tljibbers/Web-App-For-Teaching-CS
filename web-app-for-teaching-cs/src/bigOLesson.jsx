@@ -208,8 +208,10 @@ function BigOLesson() {
                     <div>
                         <div ref={jumpRef7} className="arrayHeader" id="jump7">Conclusion</div>
                         <div className="arrayTextContent">That was a lot, right? Well, just remember that these are building blocks for later lessons, so it’s not like they will go away any time soon. The thing is though, as you continue to program and learn to optimize your programs, these things become second nature. You’ll see when I go in depth on some of the algorithms that were mentioned in this lesson, hopefully it should click better if it hasn’t already. I’ll make sure to keep bringing up Big O as much as possible until you’re sick of it! I hope that this lesson helped you out, because it certainly helped me a bit. Below you can click the link to play the game that relates to this lesson!</div>
-                        <div className="arrayTextContent">[GAME UNDER CONSTRUCTION]</div>
-                        {userSignedIn && (<button className={userCompleteLessonCheck?.['big_o'] ? 'completeButton' : 'incompleteButton'} onClick={() => waitForLessonComplete()}>{userCompleteLessonCheck?.['big_o'] ? "Complete!" : "Mark as Complete"}</button>)}
+                        <div>
+                            <div>[GAME UNDER CONSTRUCTION]</div>
+                            {userSignedIn && (<button className={userCompleteLessonCheck?.['big_o'] ? 'completeButton' : 'incompleteButton'} onClick={() => waitForLessonComplete()}>{userCompleteLessonCheck?.['big_o'] ? "Complete!" : "Mark as Complete"}</button>)}
+                        </div>
                     </div>
 
                 </div>

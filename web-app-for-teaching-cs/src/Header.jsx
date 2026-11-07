@@ -81,7 +81,7 @@ function Header() {
                 Sign In    
             </button> : null}
             {userSignedIn ? (<div className="HeaderButton" onClick={logOut}>{userData}</div>) : 
-            (<button className="HeaderButton" onClick={() => navigate('/signUp')}>
+            (<button className="HeaderButton" id="getStartedButton"onClick={() => navigate('/signUp')}>
                 Get Started
             </button>)}
         </div>

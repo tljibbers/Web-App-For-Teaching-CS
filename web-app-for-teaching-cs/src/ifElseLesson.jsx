@@ -249,13 +249,13 @@ function IfElseLesson() {
                     <div>
                         <div ref={jumpRef11} className="ifElseHeader">Conclusion</div>
                         <div className="ifElseTextContent">So that was the if statement. Not too bad right? Once again reiterating from the beginning, the if statement is probably one of if not the most important fundamental to learn in programming, because it is literally everywhere. You’d do great to do a little bit of practice making if statements to try to get a full hang of it, because our next lesson, loops, will heavily involve if statements. From now on, there won’t be a lesson that doesn’t have a mention of the if statement. If you do want to get more practice, you can play the game that is linked to this lesson!</div>
-                        <div className="ifElseTextContent" onClick={() => navigate('/witches-brew')}>Play Witches Brew!</div>
-                         {userSignedIn && (<button className={userCompleteLessonCheck?.['if_else'] ? 'completeButton' : 'incompleteButton'} onClick={() => waitForLessonComplete()}>{userCompleteLessonCheck?.['if_else'] ? "Complete!" : "Mark as Complete"}</button>)}
+                        <div className="endOfLessonButtonContainer">
+                            <button className="gameButton" onClick={() => navigate('/witches-brew')}>Play Witches Brew!</button>
+                            {userSignedIn && (<button className={userCompleteLessonCheck?.['if_else'] ? 'completeButton' : 'incompleteButton'} onClick={() => waitForLessonComplete()}>{userCompleteLessonCheck?.['if_else'] ? "Complete!" : "Mark as Complete"}</button>)}
+                        </div>
                     </div>
-
                 </div>
             </div>
-            
         </>
     )
 }

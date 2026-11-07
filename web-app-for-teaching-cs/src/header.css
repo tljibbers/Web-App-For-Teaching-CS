@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
     box-shadow: 0 0px 1px 1px #0e0e0e;
     position: sticky;
@@ -21,6 +22,7 @@
 .Lesson-GetStarted {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 10px;
 }
 .HeaderButton {
@@ -33,7 +35,7 @@
     border-radius: 5px;
 }
 
-.HeaderButton:hover {
+.HeaderButton:hover:not(#getStartedButton) {
     text-decoration: underline solid;
     text-decoration-thickness: 2px;
     text-underline-offset: 5px;
@@ -41,12 +43,11 @@
 
 #lessons-dropdown {
     position: relative;
-    top: 3px;
 }
 
 .dropdownFlex {
     position: absolute;
-    top: 45px;
+    top: 43px;
     display: none;
     background-color: #0c0c0c;
     width: 320px;
@@ -69,6 +70,19 @@
     cursor: pointer;
 }
 
+#getStartedButton {
+    color: white;
+    background-color: #39bd74;
+    border: none;
+    font-size: 16px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#getStartedButton:hover {
+    background-color: #2e9e5c;
+}
 
 
 
