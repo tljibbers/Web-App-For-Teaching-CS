@@ -1,4 +1,6 @@
 import Phaser from "phaser";
+import backgroundImage from "./game-assets/if-else-game-background.png";
+import { makeShape } from "./makeShape";
 
 export class startScene extends Phaser.Scene {
     constructor() {
@@ -38,6 +40,8 @@ export class startScene extends Phaser.Scene {
         });
         
         this.startText.on('pointerdown', () => {
+            this.scene.stop()
+            this.scene.start('level1Scene');
         });
 
         this.instructionsText = this.add.text(320, 220, "Instructions", { fontSize: "24px", fill: "#ffffff" });
@@ -80,7 +84,7 @@ export class instructionsScene extends Phaser.Scene {
         // Preload assets for the instructions scene
     }  
     create() {
-        this.text = this.add.text(320, 100, "You are production witch that brews and sells potions. Today you've got more orders than usual, so drag and drop the right parts of if statements into the cauldron to brew the right potions!", { fontSize: "24px", fill: "#ffffff", wordWrap: { width: 600 }   });
+        this.text = this.add.text(320, 100, "You are a production witch that brews and sells potions. Today you've got more orders than usual, so drag and drop the right parts of if statements into the cauldron to brew the right potions!", { fontSize: "24px", fill: "#ffffff", wordWrap: { width: 600 }   });
         this.text.setOrigin(0.5);
 
         this.backText = this.add.text(320, 300, "Back To Start Menu", { fontSize: "24px", fill: "#ffffff" });
@@ -89,5 +93,81 @@ export class instructionsScene extends Phaser.Scene {
         this.backText.on('pointerdown', () => {
             this.scene.switch('startScene');
         });
+    }
+}
+
+export class pauseScene extends Phaser.Scene {
+    constructor() {
+        super("pauseScene");
+    }
+    
+    create() {
+
+        this.overlay = this.add.rectangle(320, 180, 640, 360, 0x000000, 0.5);
+        this.text = this.add.text(320, 180, "Game Paused", { fontSize: "32px", fill: "#ffffff" });
+        this.text.setOrigin(0.5);
+
+        this.resumeText = this.add.text(320, 260, "Resume", { fontSize: "24px", fill: "#ffffff" });
+        this.resumeText.setOrigin(0.5);
+
+        this.text2 = this.add.text(320, 220, "Back to Start", { fontSize: "24px", fill: "#ffffff" });
+        this.text2.setOrigin(0.5);
+
+        this.resumeText.setInteractive({ cursor: 'pointer' });
+        this.resumeText.on('pointerdown', () => {
+            this.scene.stop();
+            this.scene.resume('level1Scene');
+        });
+
+        this.text2.setInteractive({ cursor: 'pointer' });
+        this.text2.on('pointerdown', () => {
+            this.scene.stop();
+            this.scene.stop('level1Scene');
+            this.scene.start('startScene');
+        });
+
+        this.resume = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
+        this.input.keyboard.on('keydown-R', () => {
+            this.scene.stop();
+            this.scene.resume('level1Scene');
+        });
+    }
+}
+
+export class level1Scene extends Phaser.Scene {
+    constructor() {
+        super("level1Scene");
+    }
+
+    preload() {
+       this.load.image('background', backgroundImage);
+    }
+
+    create() {
+        this.add.image(0, 0, 'background').setOrigin(0, 0);
+        this.rect1 = makeShape.call(this, 0, 0, 50, 50, 0xff0000);
+        this.text = this.add.text(0, 0, "test", { fontSize: "16px", fill: "#ffffff" });
+        this.text.setOrigin(0.5);
+
+        this.container = this.add.container(100, 100);
+        this.container.add(this.rect1);
+        this.container.add(this.text);
+
+        this.container.setSize(50, 50);
+        this.container.setInteractive({ draggable: true });
+
+        this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
+            gameObject.x = dragX;
+            gameObject.y = dragY;
+        });
+
+        this.input.keyboard.on('keydown-P', () => {
+            this.scene.launch('pauseScene');
+            this.scene.bringToTop('pauseScene');
+            this.scene.pause();
+        });
+    }
+
+    update(time, delta) {
     }
 }
