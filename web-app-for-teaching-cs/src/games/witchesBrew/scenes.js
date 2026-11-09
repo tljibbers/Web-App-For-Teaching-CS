@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import backgroundImage from "./game-assets/if-else-game-background.png";
+import cauldron from "./game-assets/cauldron.png";
 import { makeShape } from "./makeShape";
 
 export class startScene extends Phaser.Scene {
@@ -110,6 +111,9 @@ export class pauseScene extends Phaser.Scene {
         this.resumeText = this.add.text(320, 260, "Resume", { fontSize: "24px", fill: "#ffffff" });
         this.resumeText.setOrigin(0.5);
 
+        this.restartLevelText = this.add.text(320, 300, "Restart Level", { fontSize: "24px", fill: "#ffffff" });
+        this.restartLevelText.setOrigin(0.5);
+
         this.text2 = this.add.text(320, 220, "Back to Start", { fontSize: "24px", fill: "#ffffff" });
         this.text2.setOrigin(0.5);
 
@@ -131,6 +135,13 @@ export class pauseScene extends Phaser.Scene {
             this.scene.stop();
             this.scene.resume('level1Scene');
         });
+
+        this.restartLevelText.setInteractive({ cursor: 'pointer' });
+        this.restartLevelText.on('pointerdown', () => {
+            this.scene.stop();
+            this.scene.stop('level1Scene');
+            this.scene.start('level1Scene');
+        });
     }
 }
 
@@ -141,10 +152,12 @@ export class level1Scene extends Phaser.Scene {
 
     preload() {
        this.load.image('background', backgroundImage);
+       this.load.image('cauldron', cauldron);
     }
 
     create() {
         this.add.image(0, 0, 'background').setOrigin(0, 0);
+        this.add.image(320, 300, 'cauldron').setOrigin(0.5, 0.5);
         this.rect1 = makeShape.call(this, 0, 0, 50, 50, 0xff0000);
         this.text = this.add.text(0, 0, "test", { fontSize: "16px", fill: "#ffffff" });
         this.text.setOrigin(0.5);
@@ -156,10 +169,28 @@ export class level1Scene extends Phaser.Scene {
         this.container.setSize(50, 50);
         this.container.setInteractive({ draggable: true });
 
+        this.zone = this.add.zone(320, 300, 100, 100);
+        this.zone.setRectangleDropZone(100, 100);
+        this.zone.setInteractive();
+
+
         this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
             gameObject.x = dragX;
             gameObject.y = dragY;
         });
+
+        this.input.on('drop', (pointer, gameObject, dropZone) => {
+            gameObject.x = dropZone.x;
+            gameObject.y = dropZone.y;
+            gameObject.input.enabled = false;
+        })
+
+        this.input.on('dragend', (pointer, gameObject, dropped) => {
+            if(!dropped) {
+                gameObject.x = gameObject.input.dragStartX;
+                gameObject.y = gameObject.input.dragStartY;
+            }
+        })
 
         this.input.keyboard.on('keydown-P', () => {
             this.scene.launch('pauseScene');
