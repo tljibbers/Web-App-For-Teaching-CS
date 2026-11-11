@@ -5,7 +5,7 @@
 }
 
 .question {
-    text-align: justify;
+    text-align: center;
     padding-top: 20px;
     font-size: 20px;
     width: 700px;
@@ -29,7 +29,13 @@
     padding-left: 10px;
     background-color: #0a0a0a;
     cursor: pointer;
+    transition: transform 0.1s ease;
 
+}
+
+.questionBox:hover{
+    transform: scale(1.1);
+    filter: brightness(110%);
 }
 
 .scoreContainer {
