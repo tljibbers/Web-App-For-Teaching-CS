@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 import backgroundImage from "./game-assets/if-else-game-background.png";
 import cauldron from "./game-assets/cauldron.png";
-import { makeShape } from "./makeShape";
+import { makeShape, addText, makeContainer } from "./helperFunctions";
 
 export class startScene extends Phaser.Scene {
     constructor() {
@@ -156,22 +156,32 @@ export class level1Scene extends Phaser.Scene {
     }
 
     create() {
+        this.textArray = []
+
         this.add.image(0, 0, 'background').setOrigin(0, 0);
         this.add.image(320, 300, 'cauldron').setOrigin(0.5, 0.5);
+
         this.rect1 = makeShape.call(this, 0, 0, 50, 50, 0xff0000);
-        this.text = this.add.text(0, 0, "test", { fontSize: "16px", fill: "#ffffff" });
-        this.text.setOrigin(0.5);
+        this.text = addText.call(this, 0, 0, "test", {fontSize: "16px", fill: "ffffff"})
 
-        this.container = this.add.container(100, 100);
-        this.container.add(this.rect1);
-        this.container.add(this.text);
+        this.rect2 = makeShape.call(this, 0, 0, 50, 50, 0xff0000)
+        this.text2 = addText.call(this, 0, 0, "test", {fontSize: "16px", fill: "ffffff"})
+        //this.text = this.add.text(0, 0, "test", { fontSize: "16px", fill: "#ffffff" });
+        //this.text.setOrigin(0.5);
 
-        this.container.setSize(50, 50);
-        this.container.setInteractive({ draggable: true });
+        //this.container = this.add.container(100, 100);
+        //this.container.add(this.rect1);
+        //this.container.add(this.text);
+
+       // this.container.setSize(50, 50);
+        //this.container.setInteractive({ draggable: true });
+        this.container = makeContainer.call(this, 100, 100, this.rect1, this.text, 50, 50)
+        //this.container.labelText = this.text.text
+
+        this.container2 = makeContainer.call(this, 320, 100, this.rect2, this.text2, 100, 100)
 
         this.zone = this.add.zone(320, 300, 100, 100);
         this.zone.setRectangleDropZone(100, 100);
-        this.zone.setInteractive();
 
 
         this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
@@ -180,9 +190,9 @@ export class level1Scene extends Phaser.Scene {
         });
 
         this.input.on('drop', (pointer, gameObject, dropZone) => {
-            gameObject.x = dropZone.x;
-            gameObject.y = dropZone.y;
-            gameObject.input.enabled = false;
+            this.textArray.push(gameObject.labelText)
+            console.log(this.textArray)
+            gameObject.destroy()
         })
 
         this.input.on('dragend', (pointer, gameObject, dropped) => {
