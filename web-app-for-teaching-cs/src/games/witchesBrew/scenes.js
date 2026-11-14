@@ -157,28 +157,32 @@ export class level1Scene extends Phaser.Scene {
 
     create() {
         this.textArray = []
+        this.wordCount = 0
 
         this.add.image(0, 0, 'background').setOrigin(0, 0);
         this.add.image(320, 300, 'cauldron').setOrigin(0.5, 0.5);
 
-        this.rect1 = makeShape.call(this, 0, 0, 50, 50, 0xff0000);
-        this.text = addText.call(this, 0, 0, "test", {fontSize: "16px", fill: "ffffff"})
+        this.container = makeContainer.call(this, 85, 50, '==', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container2 = makeContainer.call(this, 140, 50, '3', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container3 = makeContainer.call(this, 195, 50, 'else', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container4 = makeContainer.call(this, 250, 50, '2', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container5 = makeContainer.call(this, 320, 50, 'cupidTears', 80, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container6 = makeContainer.call(this, 390, 50, 'if', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container7 = makeContainer.call(this, 445, 50, '>=', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container8 = makeContainer.call(this, 500, 50, 'and', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container9 = makeContainer.call(this, 555, 50, '2', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
 
-        this.rect2 = makeShape.call(this, 0, 0, 50, 50, 0xff0000)
-        this.text2 = addText.call(this, 0, 0, "test", {fontSize: "16px", fill: "ffffff"})
-        //this.text = this.add.text(0, 0, "test", { fontSize: "16px", fill: "#ffffff" });
-        //this.text.setOrigin(0.5);
+        this.container10 = makeContainer.call(this, 125, 110, '4', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container11 = makeContainer.call(this, 180, 110, '<=', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container12 = makeContainer.call(this, 235, 110, 'then', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container13 = makeContainer.call(this, 290, 110, 'or', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container14 = makeContainer.call(this, 345, 110, '5', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container15 = makeContainer.call(this, 400, 110, 'not', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container16 = makeContainer.call(this, 490, 110, 'craftLovePotion()', 120, 50, 0xff0000, {fontSize: "11px", fill: "ffffff"})
 
-        //this.container = this.add.container(100, 100);
-        //this.container.add(this.rect1);
-        //this.container.add(this.text);
+        this.container17 = makeContainer.call(this, 320, 170, 'redCrystals', 80, 50, 0xff0000, {fontSize: "11px", fill: "ffffff"})
 
-       // this.container.setSize(50, 50);
-        //this.container.setInteractive({ draggable: true });
-        this.container = makeContainer.call(this, 100, 100, this.rect1, this.text, 50, 50)
-        //this.container.labelText = this.text.text
 
-        this.container2 = makeContainer.call(this, 320, 100, this.rect2, this.text2, 100, 100)
 
         this.zone = this.add.zone(320, 300, 100, 100);
         this.zone.setRectangleDropZone(100, 100);
@@ -193,6 +197,8 @@ export class level1Scene extends Phaser.Scene {
             this.textArray.push(gameObject.labelText)
             console.log(this.textArray)
             gameObject.destroy()
+            this.wordCount++
+            console.log(this.wordCount)
         })
 
         this.input.on('dragend', (pointer, gameObject, dropped) => {
