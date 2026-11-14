@@ -11,13 +11,16 @@ export function addText(x, y, text, style) {
     return textObj;
 }
 
-export function makeContainer(x, y, rect, text, sizex, sizey)
+export function makeContainer(x, y, text, sizex, sizey, color, style)
 {
     const container = this.add.container(x, y)
+    const rect = this.add.rectangle(0, 0, sizex, sizey, color);  
+    const textObj = this.add.text(0,0, text, style)
+    textObj.setOrigin(0.5)
     container.add(rect)
-    container.add(text)
+    container.add(textObj)
     container.setSize(sizex, sizey)
     container.setInteractive({draggable: true})
-    container.labelText = text.text
+    container.labelText = textObj.text
     return container
 }
