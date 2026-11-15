@@ -1,6 +1,6 @@
 import Header from '../../Header.jsx'
 import {useEffect} from 'react'
-import Phaser from 'phaser'
+import Phaser, { Scale } from 'phaser'
 import './witchesBrewStyling.css'
 import {startScene, instructionsScene, pauseScene, level1Scene} from './scenes.js'
 function WitchesBrewMainPage() {

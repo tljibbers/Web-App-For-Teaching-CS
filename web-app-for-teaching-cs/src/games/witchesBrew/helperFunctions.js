@@ -11,16 +11,32 @@ export function addText(x, y, text, style) {
     return textObj;
 }
 
-export function makeContainer(x, y, text, sizex, sizey, color, style)
+export function makeContainer(x, y, text, sizex, sizey, color, style, drag)
 {
     const container = this.add.container(x, y)
-    const rect = this.add.rectangle(0, 0, sizex, sizey, color);  
+    const rect = this.add.rectangle(0, 0, sizex, sizey, color);
+    rect.setRounded(16).setStrokeStyle(2, 0x000000, 1);
     const textObj = this.add.text(0,0, text, style)
     textObj.setOrigin(0.5)
     container.add(rect)
     container.add(textObj)
     container.setSize(sizex, sizey)
-    container.setInteractive({draggable: true})
+    if(drag == true)
+    {
+        container.setInteractive({draggable: true})
+    }
     container.labelText = textObj.text
     return container
+}
+
+export function checkAnswer(array ,answer)
+{
+    const joinedArray = array.join(" ")
+    console.log(joinedArray)
+    console.log(answer)
+
+    if(joinedArray == answer)
+    {
+        return true
+    }
 }

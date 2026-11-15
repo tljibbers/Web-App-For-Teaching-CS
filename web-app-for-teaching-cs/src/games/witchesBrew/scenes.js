@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 import backgroundImage from "./game-assets/if-else-game-background.png";
 import cauldron from "./game-assets/cauldron.png";
-import { makeShape, addText, makeContainer } from "./helperFunctions";
+import { makeContainer, checkAnswer } from "./helperFunctions";
 
 export class startScene extends Phaser.Scene {
     constructor() {
@@ -157,31 +157,80 @@ export class level1Scene extends Phaser.Scene {
 
     create() {
         this.textArray = []
+        this.answer = "if cupidTears == 2 and redCrystals >= 4 then craftLovePotion()"
+        this.altAnswer = "if redCrystals >= 4 and cupidTears == 2 then craftLovePotion()"
         this.wordCount = 0
 
         this.add.image(0, 0, 'background').setOrigin(0, 0);
         this.add.image(320, 300, 'cauldron').setOrigin(0.5, 0.5);
 
-        this.container = makeContainer.call(this, 85, 50, '==', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container2 = makeContainer.call(this, 140, 50, '3', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container3 = makeContainer.call(this, 195, 50, 'else', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container4 = makeContainer.call(this, 250, 50, '2', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container5 = makeContainer.call(this, 320, 50, 'cupidTears', 80, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container6 = makeContainer.call(this, 390, 50, 'if', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container7 = makeContainer.call(this, 445, 50, '>=', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container8 = makeContainer.call(this, 500, 50, 'and', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container9 = makeContainer.call(this, 555, 50, '2', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
+        this.container = makeContainer.call(this, 85, 50, '==', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container2 = makeContainer.call(this, 140, 50, '3', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container3 = makeContainer.call(this, 195, 50, 'else', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container4 = makeContainer.call(this, 250, 50, '2', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container5 = makeContainer.call(this, 320, 50, 'cupidTears', 80, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container6 = makeContainer.call(this, 390, 50, 'if', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container7 = makeContainer.call(this, 445, 50, '>=', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container8 = makeContainer.call(this, 500, 50, 'and', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container9 = makeContainer.call(this, 555, 50, '2', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
 
-        this.container10 = makeContainer.call(this, 125, 110, '4', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container11 = makeContainer.call(this, 180, 110, '<=', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container12 = makeContainer.call(this, 235, 110, 'then', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container13 = makeContainer.call(this, 290, 110, 'or', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container14 = makeContainer.call(this, 345, 110, '5', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container15 = makeContainer.call(this, 400, 110, 'not', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"})
-        this.container16 = makeContainer.call(this, 490, 110, 'craftLovePotion()', 120, 50, 0xff0000, {fontSize: "11px", fill: "ffffff"})
+        this.container10 = makeContainer.call(this, 125, 110, '4', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container11 = makeContainer.call(this, 180, 110, '<=', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container12 = makeContainer.call(this, 235, 110, 'then', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container13 = makeContainer.call(this, 290, 110, 'or', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container14 = makeContainer.call(this, 345, 110, '5', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container15 = makeContainer.call(this, 400, 110, 'not', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+        this.container16 = makeContainer.call(this, 490, 110, 'craftLovePotion()', 120, 50, 0xff0000, {fontSize: "11px", fill: "ffffff"}, true)
 
-        this.container17 = makeContainer.call(this, 320, 170, 'redCrystals', 80, 50, 0xff0000, {fontSize: "11px", fill: "ffffff"})
+        this.container17 = makeContainer.call(this, 320, 170, 'redCrystals', 80, 50, 0xff0000, {fontSize: "11px", fill: "ffffff"}, true)
 
+        this.ingredientContainer = makeContainer.call(this, 50, 320, 'i', 30, 30, 0x80FF80, {fontSize: "13px", fill: "ffffff"}, false)
+        this.ingredientContainer.setInteractive({cursor: 'pointer'})
+        this.ingredientContainer.on('pointerdown', () => {
+            this.rect = this.add.rectangle(0, 0, 250, 640, 0xf6eee3)
+            this.title = this.add.text(0, -100, "Love Potion Ingredients:", {fontSize: "13px", fill: "ffffff"}).setOrigin(0.5)
+            this.close = this.add.text(90, -150, "Close", {fontSize: "13px", fill: "ffffff"}).setOrigin(0.5)
+            this.close.setInteractive({cursor: 'pointer'})
+            this.ingredients1 = this.add.text(0, -40, "Cupid Tears: 2", {fontSize: "13px", fill: "ffffff"}).setOrigin(0.5)
+            this.ingredients2 = this.add.text(0, 10, "Red Crystals: At least 4", {fontSize: "13px", fill: "ffffff"}).setOrigin(0.5)
+            this.container = this.add.container(-150, 180)
+            this.container.add([this.rect, this.title, this.close, this.ingredients1, this.ingredients2])
+            this.container.setSize(250, 640)
+
+            this.tweens.add({
+                targets: this.container,
+                x: 120,
+                y: 180,
+                alpha: 1,
+                duration: 1000,
+                ease: 'Power2'
+            })
+
+            this.close.on('pointerdown', () => {
+                this.tweens.add({
+                    targets: this.container,
+                    x:-150,
+                    y:180,
+                    alpha: 0,
+                    duration: 1000,
+                    ease: 'Power2'
+                })
+                setTimeout(() => {
+                    this.container.destroy(true)
+                }, 3000)
+                
+            })
+        })
+        this.submitAnswerContainer = makeContainer.call(this, 420, 320, 'Mix!', 80, 30, 0x80FF80, {fontSize: "13px", fill: "ffffff"}, false)
+        this.submitAnswerContainer.setInteractive({cursor: 'pointer'})
+        this.submitAnswerContainer.on('pointerdown', () => {
+            console.log('test')
+            if(this.wordCount != 0)
+            {
+                this.rightAnswer = checkAnswer(this.textArray, this.answer)
+
+            }
+        })
 
 
         this.zone = this.add.zone(320, 300, 100, 100);
