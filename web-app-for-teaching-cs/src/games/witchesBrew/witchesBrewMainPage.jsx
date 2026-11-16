@@ -2,7 +2,7 @@ import Header from '../../Header.jsx'
 import {useEffect} from 'react'
 import Phaser, { Scale } from 'phaser'
 import './witchesBrewStyling.css'
-import {startScene, instructionsScene, pauseScene, level1Scene} from './scenes.js'
+import {startScene, instructionsScene, pauseScene, levelWinScene, level1Scene, level2Scene} from './scenes.js'
 function WitchesBrewMainPage() {
     useEffect(() => {
         const config = {
@@ -16,7 +16,7 @@ function WitchesBrewMainPage() {
             },
             parent: 'witchesBrewCanvas',
             backgroundColor: '#000000',
-            scene: [startScene, instructionsScene, pauseScene, level1Scene]
+            scene: [startScene, instructionsScene, pauseScene, levelWinScene, level1Scene, level2Scene]
         };
 
         const game = new Phaser.Game(config);
