@@ -11,10 +11,11 @@ import level2Music from "./sound-assets/mixkit-chill-bro-494.mp3"
 import level3Music from "./sound-assets/mixkit-danger-495.mp3"
 import level4Music from "./sound-assets/mixkit-sleepy-cat-135.mp3"
 import level5Music from "./sound-assets/mixkit-smooth-jazz-640.mp3"
-import { makeContainer, checkAnswer } from "./helperFunctions";
+import { makeContainer, checkAnswer, checkForLoss } from "./helperFunctions";
 
 let levelController = 0
 let timeElapsed = 0
+let numberOfTries = 3
 const levelArray = ['level1Scene', 'level2Scene', 'level3Scene', 'level4Scene', 'level5Scene']
 
 export class startScene extends Phaser.Scene {
@@ -26,6 +27,7 @@ export class startScene extends Phaser.Scene {
         this.load.audio('startMusic', startMusic)
         this.load.audio('click', click)
         this.load.audio('dropSound', drop)
+        this.load.audio('loseSound', loseSound)
     }
 
     create() {
@@ -183,6 +185,13 @@ export class level1Scene extends Phaser.Scene {
     }
 
     create() {
+        let checkLoss = checkForLoss(numberOfTries)
+        if(checkLoss == true)
+        {
+            this.scene.launch('loseScreen')
+            this.scene.bringToTop('loseScreen')
+            this.scene.pause()
+        }
         this.sound.get('startMusic').stop()
         this.sound.play('level1Music')
         this.textArray = []
@@ -212,6 +221,8 @@ export class level1Scene extends Phaser.Scene {
         this.container16 = makeContainer.call(this, 490, 110, 'craftLovePotion()', 120, 50, 0xff0000, {fontSize: "11px", fill: "ffffff"}, true)
 
         this.container17 = makeContainer.call(this, 320, 170, 'redCrystals', 80, 50, 0xff0000, {fontSize: "11px", fill: "ffffff"}, true)
+
+        this.tries = this.add.text(570, 330, `Tries Left: ${numberOfTries}`, {fontSize: "15px", fill: "#ffffff"}).setOrigin(0.5)
 
         this.ingredientContainer = makeContainer.call(this, 220, 320, 'Ingredients', 100, 30, 0x80FF80, {fontSize: "13px", fill: "ffffff"}, false)
         this.ingredientContainer.setInteractive({cursor: 'pointer'})
@@ -266,6 +277,19 @@ export class level1Scene extends Phaser.Scene {
                    this.scene.launch('levelWinScene')
                    this.scene.bringToTop('levelWinScene')
                    this.scene.pause(); 
+                }
+                else
+                {
+                    
+                    const sound = this.sound.add('loseSound')
+                    sound.on('complete', () => {
+                        this.sound.stopAll()
+                        this.scene.stop(levelArray[levelController])
+                        this.scene.start(levelArray[levelController])
+                        numberOfTries--
+                    })
+
+                    sound.play()
                 }
 
             }
@@ -356,6 +380,13 @@ export class level2Scene extends Phaser.Scene {
     }
 
     create() {
+        let checkLoss = checkForLoss(numberOfTries)
+        if(checkLoss == true)
+        {
+            this.scene.launch('loseScreen')
+            this.scene.bringToTop('loseScreen')
+            this.scene.pause()
+        }
         this.sound.play('level2Music')
         this.textArray = []
         this.answer = "if dragonWing != 3 or fairyWing >= 1 and fairyDust in witchBag then craftLevitationPotion()"
@@ -384,6 +415,9 @@ export class level2Scene extends Phaser.Scene {
 
         this.container17 = makeContainer.call(this, 250, 170, 'fairyDust', 80, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
         this.container18 = makeContainer.call(this, 400, 170, 'craftLevitationPotion()', 155, 50, 0xff0000, {fontSize: "11px", fill: "ffffff"}, true)
+
+        this.tries = this.add.text(570, 330, `Tries Left: ${numberOfTries}`, {fontSize: "15px", fill: "#ffffff"}).setOrigin(0.5)
+
 
         this.ingredientContainer = makeContainer.call(this, 220, 320, 'Ingredients', 100, 30, 0x80FF80, {fontSize: "13px", fill: "ffffff"}, false)
         this.ingredientContainer.setInteractive({cursor: 'pointer'})
@@ -439,6 +473,19 @@ export class level2Scene extends Phaser.Scene {
                     this.scene.launch('levelWinScene')
                     this.scene.bringToTop('levelWinScene')
                     this.scene.pause(); 
+                }
+                else
+                {
+                    
+                    const sound = this.sound.add('loseSound')
+                    sound.on('complete', () => {
+                        this.sound.stopAll()
+                        this.scene.stop(levelArray[levelController])
+                        this.scene.start(levelArray[levelController])
+                        numberOfTries--
+                    })
+
+                    sound.play()
                 }
 
             }
@@ -498,6 +545,13 @@ export class level3Scene extends Phaser.Scene {
     }
 
     create() {
+        let checkLoss = checkForLoss(numberOfTries)
+        if(checkLoss == true)
+        {
+            this.scene.launch('loseScreen')
+            this.scene.bringToTop('loseScreen')
+            this.scene.pause()
+        }
         this.sound.play('level3Music')
         this.textArray = []
         this.answer = "if controllerHair >= controlledHair and goblinOil == 2 then craftVoodooPotion() else craftFalseVoodooPotion()"
@@ -521,6 +575,9 @@ export class level3Scene extends Phaser.Scene {
         this.container13 = makeContainer.call(this, 395, 110, 'controlledHair', 120, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
         this.container14 = makeContainer.call(this, 485, 110, 'else', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
         this.container15 = makeContainer.call(this, 555, 110, 'goblinOil', 80, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
+
+        this.tries = this.add.text(570, 330, `Tries Left: ${numberOfTries}`, {fontSize: "15px", fill: "#ffffff"}).setOrigin(0.5)
+
         
 
         this.ingredientContainer = makeContainer.call(this, 220, 320, 'Ingredients', 100, 30, 0x80FF80, {fontSize: "13px", fill: "ffffff"}, false)
@@ -576,6 +633,19 @@ export class level3Scene extends Phaser.Scene {
                     this.scene.launch('levelWinScene')
                     this.scene.bringToTop('levelWinScene')
                     this.scene.pause(); 
+                }
+                else
+                {
+                    
+                    const sound = this.sound.add('loseSound')
+                    sound.on('complete', () => {
+                        this.sound.stopAll()
+                        this.scene.stop(levelArray[levelController])
+                        this.scene.start(levelArray[levelController])
+                        numberOfTries--
+                    })
+
+                    sound.play()
                 }
 
             }
@@ -636,6 +706,13 @@ export class level4Scene extends Phaser.Scene {
     }
 
     create() {
+        let checkLoss = checkForLoss(numberOfTries)
+        if(checkLoss == true)
+        {
+            this.scene.launch('loseScreen')
+            this.scene.bringToTop('loseScreen')
+            this.scene.pause()
+        }
         this.sound.play('level4Music')
         this.textArray = []
         this.answer = 'if orcBlood == "greyOrc" and bearFur in witchBag then if rhinoNail != 3cm then craftStrengthPotion()'
@@ -664,6 +741,9 @@ export class level4Scene extends Phaser.Scene {
 
         this.container18 = makeContainer.call(this, 250, 170, 'or', 50, 50, 0xff0000, {fontSize: "13px", fill: "ffffff"}, true)
         this.container19 = makeContainer.call(this, 360, 170, 'craftStrengthPotion()', 145, 50, 0xff0000, {fontSize: "11px", fill: "ffffff"}, true)
+
+        this.tries = this.add.text(570, 330, `Tries Left: ${numberOfTries}`, {fontSize: "15px", fill: "#ffffff"}).setOrigin(0.5)
+
         
 
         this.ingredientContainer = makeContainer.call(this, 220, 320, 'Ingredients', 100, 30, 0x80FF80, {fontSize: "13px", fill: "ffffff"}, false)
@@ -722,6 +802,19 @@ export class level4Scene extends Phaser.Scene {
                     this.scene.launch('levelWinScene')
                     this.scene.bringToTop('levelWinScene')
                     this.scene.pause(); 
+                }
+                else
+                {
+                    
+                    const sound = this.sound.add('loseSound')
+                    sound.on('complete', () => {
+                        this.sound.stopAll()
+                        this.scene.stop(levelArray[levelController])
+                        this.scene.start(levelArray[levelController])
+                        numberOfTries--
+                    })
+
+                    sound.play()
                 }
 
             }
@@ -783,6 +876,13 @@ export class level5Scene extends Phaser.Scene {
     }
 
     create() {
+        let checkLoss = checkForLoss(numberOfTries)
+        if(checkLoss == true)
+        {
+            this.scene.launch('loseScreen')
+            this.scene.bringToTop('loseScreen')
+            this.scene.pause()
+        }
         this.sound.play('level5Music')
         this.textArray = []
         this.answer = "if koalaDrool >= 2lb and slimeJuice <= 1oz then if dwarfBeardHairs > 300 and hydraVenomFlasks == 3 or goldenSand in witchBag then craftSleepPotion() else craftNightmarePotion()"
@@ -822,6 +922,9 @@ export class level5Scene extends Phaser.Scene {
         this.container18 = makeContainer.call(this, 310, 230, 'goldenSand', 80, 50, 0xff0000, {fontSize: "12px", fill: "ffffff"}, true)
         this.container19 = makeContainer.call(this, 395, 230, 'witchBag', 80, 50, 0xff0000, {fontSize: "12px", fill: "ffffff"}, true)
         this.container20 = makeContainer.call(this, 480, 230, 'slimeJuice', 80, 50, 0xff0000, {fontSize: "12px", fill: "ffffff"}, true)
+
+        this.tries = this.add.text(570, 330, `Tries Left: ${numberOfTries}`, {fontSize: "15px", fill: "#ffffff"}).setOrigin(0.5)
+
 
         
 
@@ -883,6 +986,19 @@ export class level5Scene extends Phaser.Scene {
                     this.scene.launch('winScreen')
                     this.scene.bringToTop('winScreen')
                     this.scene.pause(); 
+                }
+                else
+                {
+                    
+                    const sound = this.sound.add('loseSound')
+                    sound.on('complete', () => {
+                        this.sound.stopAll()
+                        this.scene.stop(levelArray[levelController])
+                        this.scene.start(levelArray[levelController])
+                        numberOfTries--
+                    })
+
+                    sound.play()
                 }
 
             }
@@ -968,4 +1084,39 @@ export class winScreen extends Phaser.Scene {
             this.scene.start('startScene');
         });
     }
+}
+
+export class loseScreen extends Phaser.Scene {
+    constructor() {
+        super("loseScreen")
+    }
+
+    create()
+    {
+        const timeOnlevels = (timeElapsed / 6000).toFixed(1)
+        this.overlay = this.add.rectangle(320, 180, 640, 360, 0x000000, 0.5)
+        this.text = this.add.text(320, 160, "You Lost...", {fontSize: "32px", fill: "#ffffff"}).setOrigin(0.5)
+        this.time = this.add.text(320, 200, `You Lost in: ${timeOnlevels} minutes`, {fontSize: "24px", fill:"#ffffff"}).setOrigin(0.5)
+        this.backToStartScene = this.add.text(320, 300, "Back To Start", {fontSize: "24px", fill:"#ffffff"}).setOrigin(0.5)
+        this.backToStartScene.setInteractive({cursor: 'pointer'})
+        this.backToStartScene.on('pointerover', () => {
+            this.backToStartScene.setStyle({ fill: 'rgb(0, 255, 85)' });
+        });
+        this.backToStartScene.on('pointerout', () => {
+            this.backToStartScene.setStyle({ fill: '#fff' });
+        });
+        
+        this.backToStartScene.on('pointerdown', () => {
+            this.sound.stopAll()
+
+            this.scene.stop('loseScreen')
+            this.scene.stop(levelArray[levelController])
+
+            levelController = 0
+            timeElapsed = 0
+            numberOfTries = 3
+            this.scene.start('startScene');
+        });
+    }
+    
 }

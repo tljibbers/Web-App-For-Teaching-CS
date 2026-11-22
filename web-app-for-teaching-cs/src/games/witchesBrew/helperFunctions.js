@@ -40,3 +40,11 @@ export function checkAnswer(array ,answer)
         return true
     }
 }
+
+export function checkForLoss(tries)
+{
+    if(tries == 0)
+    {
+        return true
+    }
+}
