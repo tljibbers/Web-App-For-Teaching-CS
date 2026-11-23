@@ -28,9 +28,40 @@ function WitchesBrewMainPage() {
     return (
         <>
             <Header />
-            <main className="witchesBrewMainPage">
+            <div id='witchesBrewTitle'>Witches Brew</div>
+            <div className="witchesBrewMainPage">
                 <div id="witchesBrewCanvas"></div>
-            </main>
+            </div>
+            <div id='moreAboutWitchesBrew'>
+                <div id='aboutContainer'>
+                    <div id='moreAboutTitle'>More About Witches Brew:</div>
+                    <div className='extraInfo'>Developer: [insert credit name here]</div>
+                    <div className='extraInfo'>Completed: 11/22/26</div>
+                    <div className='extraInfo'>Published: ???</div>
+                    <div className='extraInfo'>Last Updated: 11/22/26</div>
+                    <div className='divider'></div>
+                    <div id='instructionsTitle'>Instructions:</div>
+                    <div id='instructions'>You're a production witch that brews and sells potions. Today you've got more orders than usual, so drag and drop the correct statements in order to create the right potions!</div>
+                    <div id='controls'>
+                        <div>Press P to Pause</div>
+                        <div>Press R to Resume</div>
+                        <div>Click "Ingredients" to see the ingredients and the order in which you need to put them</div>
+                        <div>Click "Mix" once you're finished to (hopefully) create the potion! </div>
+                    </div>
+                    <div className='divider'></div>
+                    <div id='creditsTitle'>Credits:</div>
+                    <div id='credits'>
+                        <div id='artCredit'>All art assets done by [credit name here]</div>
+                        <div id='music'>Music Used:</div>
+                        <div>You're Like Caviar by Michael Ramir C.</div>
+                        <div>Chill Bro by Diego Nava</div>
+                        <div>Danger by Diego Nava</div>
+                        <div>Sleepy Cat by Alejandro Magana (A. M.)</div>
+                        <div>Smooth Jazz by Francisco Alvear</div>
+                        <div>Dry Gin by Michael Ramir C.</div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

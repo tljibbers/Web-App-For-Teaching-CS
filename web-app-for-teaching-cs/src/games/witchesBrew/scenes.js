@@ -78,18 +78,6 @@ export class startScene extends Phaser.Scene {
             this.instructionsText.setStyle({ fill: '#fff' });
         });
 
-        this.settingsText = this.add.text(320, 260, "Settings", { fontSize: "24px", fill: "#ffffff" });
-        this.settingsText.setOrigin(0.5);
-        this.settingsText.setInteractive({ cursor: 'pointer' });
-        this.settingsText.on('pointerdown', () => {
-            console.log('settings text clicked');
-        });
-        this.settingsText.on('pointerover', () => {
-            this.settingsText.setStyle({ fill: 'rgb(0, 255, 85)' });
-        });
-        this.settingsText.on('pointerout', () => {
-            this.settingsText.setStyle({ fill: '#fff' });
-        });
 
         this.verNum = this.add.text(580, 340, "Version 0.1", {fontSize: "12px", fill: "#ffffff"}).setOrigin(0.5)
     }
@@ -108,7 +96,7 @@ export class instructionsScene extends Phaser.Scene {
         // Preload assets for the instructions scene
     }  
     create() {
-        this.text = this.add.text(320, 100, "You are a production witch that brews and sells potions. Today you've got more orders than usual, so drag and drop the right parts of if statements into the cauldron to brew the right potions!", { fontSize: "24px", fill: "#ffffff", wordWrap: { width: 600 }   });
+        this.text = this.add.text(320, 100, "You are a production witch that brews and sells potions. Today you've got more orders than usual, so drag and drop the right parts of if statements into the cauldron to brew the right potions! And remember, the order you put things in counts!", { fontSize: "24px", fill: "#ffffff", wordWrap: { width: 600 }   });
         this.text.setOrigin(0.5);
 
         this.backText = this.add.text(320, 300, "Back To Start Menu", { fontSize: "24px", fill: "#ffffff" });
@@ -116,6 +104,13 @@ export class instructionsScene extends Phaser.Scene {
         this.backText.setInteractive({ cursor: 'pointer' });
         this.backText.on('pointerdown', () => {
             this.scene.switch('startScene');
+        });
+        this.backText.setInteractive({ cursor: 'pointer' });
+        this.backText.on('pointerover', () => {
+            this.backText.setStyle({ fill: 'rgb(0, 255, 85)' });
+        });
+        this.backText.on('pointerout', () => {
+            this.backText.setStyle({ fill: '#fff' });
         });
     }
 }
@@ -128,16 +123,16 @@ export class pauseScene extends Phaser.Scene {
     create() {
 
         this.overlay = this.add.rectangle(320, 180, 640, 360, 0x000000, 0.5);
-        this.text = this.add.text(320, 180, "Game Paused", { fontSize: "32px", fill: "#ffffff" });
+        this.text = this.add.text(320, 60, "Game Paused", { fontSize: "32px", fill: "#ffffff" });
         this.text.setOrigin(0.5);
 
-        this.resumeText = this.add.text(320, 260, "Resume", { fontSize: "24px", fill: "#ffffff" });
+        this.resumeText = this.add.text(320, 220, "Resume", { fontSize: "24px", fill: "#ffffff" });
         this.resumeText.setOrigin(0.5);
 
-        this.restartLevelText = this.add.text(320, 300, "Restart Level", { fontSize: "24px", fill: "#ffffff" });
+        this.restartLevelText = this.add.text(320, 260, "Restart Level", { fontSize: "24px", fill: "#ffffff" });
         this.restartLevelText.setOrigin(0.5);
 
-        this.text2 = this.add.text(320, 220, "Back to Start", { fontSize: "24px", fill: "#ffffff" });
+        this.text2 = this.add.text(320, 180, "Back to Start", { fontSize: "24px", fill: "#ffffff" });
         this.text2.setOrigin(0.5);
 
         this.resumeText.setInteractive({ cursor: 'pointer' });
@@ -145,6 +140,13 @@ export class pauseScene extends Phaser.Scene {
             this.scene.stop();
             this.scene.resume(levelArray[levelController])
         });
+        this.resumeText.on('pointerover', () => {
+            this.resumeText.setStyle({ fill: 'rgb(0, 255, 85)' });
+        });
+        this.resumeText.on('pointerout', () => {
+            this.resumeText.setStyle({ fill: '#fff' });
+        });
+        
 
         this.text2.setInteractive({ cursor: 'pointer' });
         this.text2.on('pointerdown', () => {
@@ -155,6 +157,12 @@ export class pauseScene extends Phaser.Scene {
             levelController = 0;
             timeElapsed = 0;
             this.scene.start('startScene')
+        });
+        this.text2.on('pointerover', () => {
+            this.text2.setStyle({ fill: 'rgb(0, 255, 85)' });
+        });
+        this.text2.on('pointerout', () => {
+            this.text2.setStyle({ fill: '#fff' });
         });
 
         this.resume = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
@@ -169,6 +177,12 @@ export class pauseScene extends Phaser.Scene {
             this.sound.stopAll();
             this.scene.stop(levelArray[levelController])
             this.scene.start(levelArray[levelController])
+        });
+        this.restartLevelText.on('pointerover', () => {
+            this.restartLevelText.setStyle({ fill: 'rgb(0, 255, 85)' });
+        });
+        this.restartLevelText.on('pointerout', () => {
+            this.restartLevelText.setStyle({ fill: '#fff' });
         });
     }
 }

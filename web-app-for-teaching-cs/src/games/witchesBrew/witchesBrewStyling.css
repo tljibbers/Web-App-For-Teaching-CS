@@ -2,5 +2,90 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 120px;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
+
+#witchesBrewCanvas {
+    width: 640px;
+    height: 360px;
+}
+
+
+
+#witchesBrewTitle {
+    font-size: 50px;
+    color: white;
+    font-weight: 100;
+    text-align: center;
+    padding-top: 60px;
+}
+
+#moreAboutWitchesBrew {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
+#aboutContainer {
+    border-radius: 20px;
+    width: 960px;
+    height: 750px;
+    background-color: #0a0a0a;
+    color: white;
+    margin-bottom: 40px;
+}
+
+#moreAboutTitle {
+    font-size: 24px;
+    margin: 20px;
+}
+
+.extraInfo {
+    margin: 20px;
+}
+
+.divider {
+    width: 920px;
+    height: 1px;
+    margin: 20px;
+    background-color: aliceblue;
+}
+
+#instructionsTitle {
+    margin-left: 20px;
+    font-size: 24px;
+}
+
+#instructions {
+    margin: 20px;
+}
+
+#controls {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#creditsTitle {
+    margin: 20px;
+    font-size: 24px;
+}
+
+#credits {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    gap: 5px;
+}
+
+#artCredit {
+    margin-bottom: 5px;
+}
+
+#music {
+    font-size: 20px;
+}
+
