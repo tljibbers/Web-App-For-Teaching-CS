@@ -1058,7 +1058,7 @@ export class winScreen extends Phaser.Scene {
     }
 
     create() {
-        const timeOnlevels = (timeElapsed / 6000).toFixed(1)
+        const timeOnlevels = (timeElapsed / 60000).toFixed(1)
         
         this.sound.play('winSound')
         this.overlay = this.add.rectangle(320, 180, 640, 360, 0x000000, 0.5)
@@ -1093,7 +1093,7 @@ export class loseScreen extends Phaser.Scene {
 
     create()
     {
-        const timeOnlevels = (timeElapsed / 6000).toFixed(1)
+        const timeOnlevels = (timeElapsed / 60000).toFixed(1)
         this.overlay = this.add.rectangle(320, 180, 640, 360, 0x000000, 0.5)
         this.text = this.add.text(320, 160, "You Lost...", {fontSize: "32px", fill: "#ffffff"}).setOrigin(0.5)
         this.time = this.add.text(320, 200, `You Lost in: ${timeOnlevels} minutes`, {fontSize: "24px", fill:"#ffffff"}).setOrigin(0.5)
