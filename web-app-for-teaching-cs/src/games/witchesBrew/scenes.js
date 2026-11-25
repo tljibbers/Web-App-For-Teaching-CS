@@ -28,6 +28,12 @@ export class startScene extends Phaser.Scene {
         this.load.audio('click', click)
         this.load.audio('dropSound', drop)
         this.load.audio('loseSound', loseSound)
+        this.load.audio('level1Music', level1Music)
+        this.load.audio('winSound', winSound)
+        this.load.audio('level2Music', level2Music)
+        this.load.audio('level3Music', level3Music)
+        this.load.audio('level4Music', level4Music)
+        this.load.audio('level5Music', level5Music)
     }
 
     create() {
@@ -195,7 +201,7 @@ export class level1Scene extends Phaser.Scene {
     preload() {
        this.load.image('background', backgroundImage);
        this.load.image('cauldron', cauldron);
-       this.load.audio('level1Music', level1Music)
+       //this.load.audio('level1Music', level1Music)
     }
 
     create() {
@@ -356,7 +362,7 @@ export class levelWinScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.audio('winSound', winSound)
+        //this.load.audio('winSound', winSound)
     }
 
     create() {
@@ -390,7 +396,7 @@ export class level2Scene extends Phaser.Scene {
     preload() {
        this.load.image('background', backgroundImage);
        this.load.image('cauldron', cauldron);
-       this.load.audio('level2Music', level2Music)
+       //this.load.audio('level2Music', level2Music)
     }
 
     create() {
@@ -555,7 +561,7 @@ export class level3Scene extends Phaser.Scene {
     preload() {
        this.load.image('background', backgroundImage);
        this.load.image('cauldron', cauldron);
-       this.load.audio('level3Music', level3Music)
+       //this.load.audio('level3Music', level3Music)
     }
 
     create() {
@@ -716,7 +722,7 @@ export class level4Scene extends Phaser.Scene {
     preload() {
        this.load.image('background', backgroundImage);
        this.load.image('cauldron', cauldron);
-       this.load.audio('level4Music', level4Music)
+       //this.load.audio('level4Music', level4Music)
     }
 
     create() {
@@ -886,7 +892,7 @@ export class level5Scene extends Phaser.Scene {
     preload() {
        this.load.image('background', backgroundImage);
        this.load.image('cauldron', cauldron);
-       this.load.audio('level5Music', level5Music)
+       //this.load.audio('level5Music', level5Music)
     }
 
     create() {
