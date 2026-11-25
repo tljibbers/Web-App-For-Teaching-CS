@@ -18,6 +18,7 @@ import bigO6 from './lessonScreenshots/big-o/bigO6.png'
 import bigO7 from './lessonScreenshots/big-o/bigO7.png'
 import bigO8 from './lessonScreenshots/big-o/bigO8.png'
 import bigO9 from './lessonScreenshots/big-o/bigO9.png'
+import bigOGraph from './lessonScreenshots/big-o/big-o-graph.png'
 function BigOLesson() {
     const navigate = useNavigate();
     const [userSignedIn, setUserSignedIn] = useState(false); 
@@ -162,7 +163,7 @@ function BigOLesson() {
                     <div>
                         <div ref={jumpRef5} className="arrayHeader" id="jump5">The Big O Complexities</div>
                         <div className="arrayTextContent">Okay, this part's gonna be a lot, but I’ll try to make it as digestible as possible. There weren’t too many pictures used in this lesson so far, but that changes here. We’re gonna need them. To start with, let’s take a look at this graph.</div>
-                        <img></img>
+                        <img src={bigOGraph} id='bigOGraph'></img>
                         <div className="arrayTextContent">This is the Big O graph, with the most important complexities to look out for. It goes worst complexity (O(n!)) to best (O(1)). There are obviously more than what you see here, but it gets to a point where it gets super negligible. Things like O(3n), O(4n), and so on, don’t really need to be on your radar because you aren’t going to see them as much. In your time developing things though, what you see on this graph, you will and already have come across. Let’s take a look at them individually, starting with O(1).</div>
                         <div className="miniHeader">O(1)</div>
                         <div className="arrayTextContent">O(1) is called <span className='boldedText'>constant time</span>, which means that no matter what, the instruction will always take the same amount of time to get through, even if the input value were to increase. </div>

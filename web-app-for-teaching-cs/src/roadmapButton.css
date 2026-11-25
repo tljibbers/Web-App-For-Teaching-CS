@@ -78,6 +78,29 @@
     transform: translateY(-50%);
 }
 
+#itpTitle, #dsaTitle {
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    position: relative;
+    top: 100px;
+}
+
+.displayContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#titleDisplay, #titleDescription {
+    position: relative;
+    top: 400px;
+    color: white;
+    font-size: large;
+}
+
 
 
 
