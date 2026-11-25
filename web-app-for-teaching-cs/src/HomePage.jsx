@@ -16,7 +16,7 @@ function HomePage() {
           <div className="SubTaglineContainer" id='topContainer'>
             <div className= "tagline1">
               <p className = "taglineHeader">Learn Computer Science in a fun, engaging way.</p>
-              <p className = "taglineSubText">This website was designed specifically for anyone who shows an interest in Computer Science, but doesn't know where to start.</p>  
+              <p className = "taglineSubText">For anyone that's ever showed interest in the subject of Computer Science, but has wondered to themselves: "where in the world should I even begin?!", this website is for you. Through a structured roadmap and engaging supplemental material, this website should be a good time while still teaching meaningful information.</p>  
             </div>
             <img src={computer} className="taglineSvg" width="400"></img>
           </div>
@@ -24,7 +24,7 @@ function HomePage() {
             <img src={visualLearning} className="taglineSvg" width="400"></img>
             <div className = "tagline2">
                 <p className = "taglineHeader">Made for Visual and Kinesthetic Learners.</p>
-                <p className = "taglineSubText">This website guarantees that it will help those who need a more hands on experience.</p>
+                <p className = "taglineSubText">For those who struggle with learning things through just reading and need a hands on experience, this website is the perfect place to learn, using interactive quizzes and mini-games to reinforce learning.</p>
             </div>
           </div>
         </div>

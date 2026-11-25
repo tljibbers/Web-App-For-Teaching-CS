@@ -39,6 +39,7 @@
     text-decoration: underline solid;
     text-decoration-thickness: 2px;
     text-underline-offset: 5px;
+    color: rgb(175, 175, 175);
 }
 
 #lessons-dropdown {
@@ -83,6 +84,8 @@
 #getStartedButton:hover {
     background-color: #2e9e5c;
 }
+
+
 
 
 
