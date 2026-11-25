@@ -183,3 +183,7 @@
 .endOfLessonButtonContainer button {
     margin: 0;
 }
+
+#bigOGraph {
+    border-radius: 20px;
+}
