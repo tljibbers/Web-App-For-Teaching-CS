@@ -12,8 +12,9 @@ function QuestionOne({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answerOne").value;
+                    const answerValueLower = answerValue.toLowerCase();
 
-                    if(answerValue === "del favoriteFruits[2]") {
+                    if(answerValueLower === "del favoritefruits[2]") {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();
@@ -46,8 +47,9 @@ function QuestionTwo({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answerTwo").value;
+                    const answerValueLower = answerValue.toLowerCase();
 
-                    if(answerValue === "favoriteFruits.pop()") {
+                    if(answerValueLower === "favoritefruits.pop()") {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();
@@ -124,8 +126,9 @@ function QuestionFive({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answerFive").value;
+                    const answerValueLower = answerValue.toLowerCase();
                     
-                    if(answerValue === "favoriteFruits[1] = 'oranges'") {
+                    if(answerValueLower === "favoritefruits[1] = 'oranges'") {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();
