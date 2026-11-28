@@ -59,8 +59,9 @@ export function QuestionThree({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answer").value;
+                    const answerValueLower = answerValue.toLowerCase();
 
-                    if(answerValue === "if microphone == 'blue snowball' and monitor == 'sceptre'") {
+                    if(answerValueLower === "if microphone == 'blue snowball' and monitor == 'sceptre'") {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();
@@ -92,8 +93,9 @@ export function QuestionFour({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answer").value;
+                    const answerValueLower = answerValue.toLowerCase();
 
-                    if(answerValue === "if microphone == 'blue snowball' and monitor == 'sceptre' or microphone != 'blue yeti' and monitor == 'dell'") {
+                    if(answerValueLower === "if microphone == 'blue snowball' and monitor == 'sceptre' or microphone != 'blue yeti' and monitor == 'dell'") {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();
@@ -125,8 +127,9 @@ export function QuestionFive({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answer").value;
+                    const answerValueLower = answerValue.toLowerCase();
 
-                    if(answerValue === "if 'elden ring' in videoGames") {
+                    if(answerValueLower === "if 'elden ring' in videogames") {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();

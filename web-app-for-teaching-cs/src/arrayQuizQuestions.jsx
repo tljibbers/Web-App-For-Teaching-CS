@@ -61,8 +61,9 @@ export function QuestionThree({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answer").value;
+                    const answerValueLower = answerValue.toLowerCase();
 
-                    if(answerValue === "fruits.append('watermelon')") {
+                    if(answerValueLower === "fruits.append('watermelon')") {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();

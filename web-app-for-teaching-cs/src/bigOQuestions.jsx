@@ -74,8 +74,9 @@ export function QuestionFour({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answer").value;
+                    const answerValueLower = answerValue.toLowerCase();
 
-                    if(answerValue === "memory space") {
+                    if(answerValueLower === "memory space") {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();

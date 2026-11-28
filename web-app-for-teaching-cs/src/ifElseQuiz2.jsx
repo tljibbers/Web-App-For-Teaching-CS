@@ -11,8 +11,9 @@ export function QuestionOne({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answer").value;
+                    const answerValueLower = answerValue.toLowerCase();
 
-                    if(answerValue === "elif favoriteFruit == 'orange'" || answerValue === "elif favoriteFruit == 'orange':" ) {
+                    if(answerValueLower === "elif favoritefruit == 'orange'" || answerValue === "elif favoritefruit == 'orange':" ) {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();
@@ -63,8 +64,9 @@ export function QuestionThree({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answer").value;
+                    const answerValueLower = answerValue.toLowerCase();
 
-                    if(answerValue === "if amountOfPeople == 6: print('there are 6 people')") {
+                    if(answerValueLower === "if amountofpeople == 6: print('there are 6 people')") {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();
@@ -96,8 +98,9 @@ export function QuestionFour({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answer").value;
+                    const answerValueLower = answerValue.toLowerCase();
 
-                    if(answerValue === "print('there are 10 or more floors') if hotelFloors >= 10 else print('there are not 10 or more floors')") {
+                    if(answerValueLower === "print('there are 10 or more floors') if hotelfloors >= 10 else print('there are not 10 or more floors')") {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();
@@ -140,13 +143,7 @@ function ScoreMessage({score}) {
     else if(score == 3)
     {
         return (
-            <div id='message'>Just halfway there! Let's go for a 5!</div>
-        )
-    }
-    else if(score == 4)
-    {
-        return (
-            <div id='message'>Great Work! Want to try again for a perfect score? Feel free!</div>
+            <div id='message'>Almost there! Let's go for a 4!</div>
         )
     }
     else

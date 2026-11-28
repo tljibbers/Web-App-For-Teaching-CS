@@ -62,8 +62,9 @@ export function QuestionThree({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answer").value;
+                    const answerValueLower = answerValue.toLowerCase();
 
-                    if(answerValue === "o(n)") {
+                    if(answerValueLower === "o(n)") {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();
@@ -120,8 +121,9 @@ export function QuestionFive({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answer").value;
+                    const answerValueLower = answerValue.toLowerCase();
 
-                    if(answerValue === "o(nlogn)") {
+                    if(answerValueLower === "o(nlogn)") {
                         setTimeout(() => {
                             increment();
                             rightAnswerIncrement();

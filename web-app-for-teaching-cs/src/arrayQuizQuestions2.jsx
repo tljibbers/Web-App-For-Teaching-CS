@@ -124,7 +124,7 @@ function QuestionFive({increment, rightAnswerIncrement}) {
                     e.preventDefault();
 
                     const answerValue = document.getElementById("answerFive").value;
-
+                    
                     if(answerValue === "favoriteFruits[1] = 'oranges'") {
                         setTimeout(() => {
                             increment();
